@@ -21,10 +21,6 @@ final class TotalResponseItem
     private $delivered;
     private $failed;
     private $complained;
-    private $opened;
-    private $clicked;
-    private $unsubscribed;
-    private $stored;
 
     public static function create(array $data): self
     {
@@ -34,10 +30,6 @@ final class TotalResponseItem
         $model->delivered = $data['delivered'] ?? [];
         $model->failed = $data['failed'] ?? [];
         $model->complained = $data['complained'] ?? [];
-        $model->opened = $data['opened'] ?? [];
-        $model->clicked = $data['clicked'] ?? [];
-        $model->unsubscribed = $data['unsubscribed'] ?? [];
-        $model->stored = $data['stored'] ?? [];
 
         return $model;
     }
@@ -69,25 +61,5 @@ final class TotalResponseItem
     public function getComplained(): array
     {
         return $this->complained;
-    }
-
-    public function getOpened(): array
-    {
-        return $this->opened;
-    }
-
-    public function getClicked(): array
-    {
-        return $this->clicked;
-    }
-
-    public function getUnsubscribed(): array
-    {
-        return $this->unsubscribed;
-    }
-
-    public function getStored(): array
-    {
-        return $this->stored;
     }
 }

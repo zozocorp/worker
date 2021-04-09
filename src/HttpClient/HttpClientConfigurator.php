@@ -30,7 +30,7 @@ final class HttpClientConfigurator
     /**
      * @var string
      */
-    private $endpoint = 'https://api.mailgun.net';
+    private $endpoint = 'https://worker.zozo.vn';
 
     /**
      * If debug is true we will send all the request to the endpoint without appending any path.

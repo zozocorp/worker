@@ -45,6 +45,11 @@ class Mailgun
      */
     private $requestBuilder;
 
+     /**
+     * @var string
+     */
+    private static $host = 'https://worker.zozo.vn/api/v1';
+
     /**
      * This is a object that holds the last response from the API.
      *
@@ -63,14 +68,14 @@ class Mailgun
         $this->httpClient = $configurator->createConfiguredClient();
         $this->apiKey = $configurator->getApiKey();
         $this->responseHistory = $configurator->getResponseHistory();
+        $this->httpClient->apiKey = $configurator->getApiKey();
+        $this->httpClient->host = self::$host;
     }
 
-    public static function create(string $apiKey, string $endpoint = 'https://api.mailgun.net'): self
+    public static function create(string $apiKey, string $endpoint = 'https://worker.zozo.vn/api/v1'): self
     {
         $httpClientConfigurator = (new HttpClientConfigurator())
-            ->setApiKey($apiKey)
-            ->setEndpoint($endpoint);
-
+            ->setApiKey($apiKey);
         return new self($httpClientConfigurator);
     }
 
@@ -84,19 +89,14 @@ class Mailgun
         return new Api\Attachment($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function domains(): Api\Domain
+    public function verifyEmail(): Api\VerifyEmail
     {
-        return new Api\Domain($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\VerifyEmail($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
     public function emailValidation(): Api\EmailValidation
     {
         return new Api\EmailValidation($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function emailValidationV4(): Api\EmailValidationV4
-    {
-        return new Api\EmailValidationV4($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
     public function events(): Api\Event

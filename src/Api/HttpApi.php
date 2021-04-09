@@ -92,11 +92,9 @@ abstract class HttpApi
             case 402:
                 throw HttpClientException::requestFailed($response);
             case 403:
-                throw HttpClientException::forbidden($response);
+                throw  HttpClientException::forbidden($response);
             case 404:
                 throw HttpClientException::notFound($response);
-            case 409:
-                throw HttpClientException::conflict($response);
             case 413:
                 throw HttpClientException::payloadTooLarge($response);
             case 500 <= $statusCode:
@@ -113,16 +111,14 @@ abstract class HttpApi
      * @param array  $parameters     GET parameters
      * @param array  $requestHeaders Request Headers
      */
-    protected function httpGet(string $path, array $parameters = [], array $requestHeaders = []): ResponseInterface
+    protected function httpGet(string $path, array $parameters = [], array $requestHeaders = [])
     {
         if (count($parameters) > 0) {
-            $path .= '?'.urldecode(http_build_query($parameters));
+            $path .= '?'.http_build_query($parameters);
         }
-
+       
         try {
-            $response = $this->httpClient->sendRequest(
-                $this->requestBuilder->create('GET', $path, $requestHeaders)
-            );
+            $response = $this->requestBuilder->resfullRequest('GET', $path, $requestHeaders);
         } catch (Psr18\NetworkExceptionInterface $e) {
             throw HttpServerException::networkError($e);
         }
@@ -148,13 +144,13 @@ abstract class HttpApi
      * @param string       $path           Request path
      * @param array|string $body           Request body
      * @param array        $requestHeaders Request headers
+     * 
+     * @todo remove interface => you need more interface
      */
-    protected function httpPostRaw(string $path, $body, array $requestHeaders = []): ResponseInterface
+    protected function httpPostRaw(string $path, array $body, array $requestHeaders = [])
     {
         try {
-            $response = $this->httpClient->sendRequest(
-                $this->requestBuilder->create('POST', $path, $requestHeaders, $body)
-            );
+            $response =  $this->requestBuilder->resfullRequest('POST', $path, $body, $requestHeaders);
         } catch (Psr18\NetworkExceptionInterface $e) {
             throw HttpServerException::networkError($e);
         }

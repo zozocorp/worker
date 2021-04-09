@@ -34,7 +34,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @author Sean Johnson <sean@mailgun.com>
  */
-class Domain extends HttpApi
+class VerifyEmail extends HttpApi
 {
     /**
      * Returns a list of domains on the account.
@@ -62,13 +62,11 @@ class Domain extends HttpApi
      *
      * @return ShowResponse|array|ResponseInterface
      */
-    public function show(string $domain)
+    public function show(string $email)
     {
-        Assert::stringNotEmpty($domain);
-
-        $response = $this->httpGet(sprintf('/v3/domains/%s', $domain));
-
-        return $this->hydrateResponse($response, ShowResponse::class);
+        Assert::stringNotEmpty($email);
+        $response = $this->httpGet(sprintf('%s/email/verify/%s?api_token=%s', $this->httpClient->host, $email, $this->httpClient->apiKey));
+        return $response;
     }
 
     /**

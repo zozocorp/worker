@@ -77,6 +77,84 @@ class RequestBuilder
         return $this->createRequest($method, $uri, $headers, $multipartStream);
     }
 
+    // @todo remove interface => you need more interface
+    public function resfullRequest(string $method, string $uri,array $body = null, array $headers = [])
+    {
+        $url = $uri;
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        
+        if(is_array($headers) && $headers != null){
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        }
+
+        switch ($method) {
+            case "GET":
+                curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+                break;
+            case "POST":
+                curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+                break;
+            case "DELETE":
+                curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE"); 
+                curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($body));
+                break;
+        }
+        $response = curl_exec($curl);
+
+        if($response == false){
+            return '404: API Not found';
+        }
+
+        $data = json_decode($response);
+
+        /* Check for 404 (file not found). */
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        // Check the HTTP Status code
+        
+        $status_code = $this->statusCode($httpCode, $curl, $data);
+        return $status_code;
+
+       
+    }
+
+    // @todo remove interface => you need more interface
+    private function statusCode(int $httpCode, $curl, object $data = null)
+    {
+        switch ($httpCode) {
+            case 200:
+                $error_status = "200: Success";
+                return ($data);
+                break;
+            case 404:
+                $error_status = "404: API Not found";
+                break;
+            case 500:
+                $error_status = "500: servers replied with an error.";
+                break;
+            case 502:
+                $error_status = "502: servers may be down or being upgraded. Hopefully they'll be OK soon!";
+                break;
+            case 503:
+                $error_status = "503: service unavailable. Hopefully they'll be OK soon!";
+                break;
+            default:
+                $error_status = "Undocumented error: " . $httpCode . " : " . curl_error($curl);
+                break;
+        }
+        curl_close($curl);
+        echo $error_status;
+        die;
+    }
+
+
     private function getRequestFactory(): RequestFactoryInterface
     {
         if (null === $this->requestFactory) {

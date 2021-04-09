@@ -25,6 +25,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Message extends HttpApi
 {
+
     public function getBatchMessage(string $domain, bool $autoSend = true): BatchMessage
     {
         return new BatchMessage($this, $domain, $autoSend);
@@ -34,33 +35,15 @@ class Message extends HttpApi
      * @see https://documentation.mailgun.com/en/latest/api-sending.html#sending
      *
      * @return SendResponse|ResponseInterface
+     * 
+     * * @todo remove interface => you need more interface
      */
-    public function send(string $domain, array $params)
+    
+    public function send(array $params, $headers = [])
     {
-        Assert::string($domain);
-        Assert::notEmpty($domain);
         Assert::notEmpty($params);
-
-        $postDataMultipart = [];
-        $fields = ['attachment', 'inline'];
-        foreach ($fields as $fieldName) {
-            if (!isset($params[$fieldName])) {
-                continue;
-            }
-
-            Assert::isArray($params[$fieldName]);
-            foreach ($params[$fieldName] as $file) {
-                $postDataMultipart[] = $this->prepareFile($fieldName, $file);
-            }
-
-            unset($params[$fieldName]);
-        }
-
-        $postDataMultipart = array_merge($this->prepareMultipartParameters($params), $postDataMultipart);
-        $response = $this->httpPostRaw(sprintf('/v3/%s/messages', $domain), $postDataMultipart);
-        $this->closeResources($postDataMultipart);
-
-        return $this->hydrateResponse($response, SendResponse::class);
+        $response = $this->httpPostRaw(sprintf('%s/email/send?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        return $response;
     }
 
     /**
@@ -185,4 +168,5 @@ class Message extends HttpApi
             }
         }
     }
+
 }
