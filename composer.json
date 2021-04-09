@@ -4,8 +4,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Travis Swientek",
-            "email": "travis@mailgunhq.com"
+            "name": "le thi",
+            "email": "ledinhthi2909@gmail.com"
         }
     ],
     "require": {
@@ -28,7 +28,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.0-dev"
+            "dev-master": "1.0"
         }
     },
     "autoload": {
