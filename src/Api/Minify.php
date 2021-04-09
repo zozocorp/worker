@@ -19,7 +19,7 @@ use Worker\Model\Event\EventResponse;
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-class Event extends HttpApi
+class Minify extends HttpApi
 {
     use Pagination;
 
@@ -37,5 +37,26 @@ class Event extends HttpApi
         $response = $this->httpGet(sprintf('/v3/%s/events', $domain), $params);
 
         return $this->hydrateResponse($response, EventResponse::class);
+    }
+
+
+    /**
+     * @return EventResponse
+     */
+    public function HTML(array $params, array $headers = [])
+    {
+        Assert::notEmpty($params);
+        $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        return $response;
+    }
+
+     /**
+     * @return EventResponse
+     */
+    public function shrink(array $params, array $headers = [])
+    {
+        Assert::notEmpty($params);
+        $response = $this->httpPostRaw(sprintf('%s/image/shrink?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        return $response;
     }
 }

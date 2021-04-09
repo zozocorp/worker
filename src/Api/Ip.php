@@ -24,7 +24,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Ip extends HttpApi
 {
-    /**
+      /**
      * Returns a list of IPs.
      *
      * @return IndexResponse|ResponseInterface
@@ -61,13 +61,11 @@ class Ip extends HttpApi
      *
      * @return ShowResponse|ResponseInterface
      */
-    public function show(string $ip)
+    public function infor(array $params, $headers = [])
     {
-        Assert::ip($ip);
-
-        $response = $this->httpGet(sprintf('/v3/ips/%s', $ip));
-
-        return $this->hydrateResponse($response, ShowResponse::class);
+        Assert::notEmpty($params);
+        $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        return $response;
     }
 
     /**

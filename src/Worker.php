@@ -89,19 +89,25 @@ class Worker
         return new Api\Attachment($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
+    //start
+    public function emails(): Api\Message
+    {
+        return new Api\Message($this->httpClient, $this->requestBuilder, $this->hydrator);
+    }
+
     public function verifyEmail(): Api\VerifyEmail
     {
         return new Api\VerifyEmail($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function emailValidation(): Api\EmailValidation
+    public function convert(): Api\Convert
     {
-        return new Api\EmailValidation($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\Convert($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function events(): Api\Event
+    public function minify(): Api\Minify
     {
-        return new Api\Event($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\Minify($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
     public function ips(): Api\Ip
@@ -109,14 +115,11 @@ class Worker
         return new Api\Ip($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
+    //done
+
     public function mailingList(): Api\MailingList
     {
         return new Api\MailingList($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function messages(): Api\Message
-    {
-        return new Api\Message($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
     public function routes(): Api\Route

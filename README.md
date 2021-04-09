@@ -4,10 +4,10 @@ This is the Worker PHP SDK. This SDK contains methods for easily interacting
 with the Worker API. Below are examples to get you started. For additional
 examples, please see our official documentation at http://documentation.worker.com
 
-[![Latest Version](https://img.shields.io/github/release/worker/worker-php.svg?style=flat-square)](https://github.com/worker/worker-php/releases)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
-[![Quality Score](https://img.shields.io/scrutinizer/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/worker/worker-php.svg?style=flat-square)](https://packagist.org/packages/worker/worker-php)
+[![Latest Version](https://iwk.shields.io/github/release/worker/worker-php.svg?style=flat-square)](https://github.com/worker/worker-php/releases)
+[![Code Coverage](https://iwk.shields.io/scrutinizer/coverage/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
+[![Quality Score](https://iwk.shields.io/scrutinizer/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
+[![Total Downloads](https://iwk.shields.io/packagist/dt/worker/worker-php.svg?style=flat-square)](https://packagist.org/packages/worker/worker-php)
 [![Join the chat at https://gitter.im/worker/worker-php](https://badges.gitter.im/worker/worker-php.svg)](https://gitter.im/worker/worker-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Installation
@@ -48,12 +48,11 @@ Here's how to send a message using the SDK:
 
 ```php
 // First, instantiate the SDK with your API credentials
-$mg = Worker::create('key-example'); // For US servers
-$mg = Worker::create('key-example', 'https://api.eu.worker.net'); // For EU servers
+$wk = Worker::create('key-example'); // For US servers
 
 // Now, compose and send your message.
-// $mg->messages()->send($domain, $params);
-$mg->messages()->send('example.com', [
+// $wk->messages()->send($domain, $params);
+$wk->emails()->send('example.com', [
   'from'    => 'bob@example.com',
   'to'      => 'sally@example.com',
   'subject' => 'The PHP SDK is awesome!',
@@ -68,37 +67,50 @@ Attention: `$domain` must match to the domain you have configured on [app.worker
 You will find more detailed documentation at [/doc](doc/index.md) and on
 [https://documentation.worker.com](https://documentation.worker.com/en/latest/api_reference.html).
 
-### Response
-
-The result of an API call is, by default, a domain object. This will make it easy
-to understand the response without reading the documentation. One can just read the
-doc blocks on the response classes. This provides an excellent IDE integration.
-
+### VERIFY EMAIL
 ```php
-$mg = Worker::create('key-example');
-$dns = $mg->domains()->show('example.com')->getInboundDNSRecords();
-
-foreach ($dns as $record) {
-  echo $record->getType();
-}
+$wk = Worker::create('key-example');
+$dns = $wk->verifyEmail()->show($email);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
 to the Worker class.
 
+### MINIFY
+
+The result of an API call is, by default, a domain object. This will make it easy
+to understand the response without reading the documentation. One can just read the
+doc blocks on the response classes. This provides an excellent IDE integration.
+
+### MINIFY HTML
 ```php
-use Worker\Hydrator\ArrayHydrator;
-
-$configurator = new HttpClientConfigurator();
-$configurator->setApiKey('key-example');
-
-$mg = new Worker($configurator, new ArrayHydrator());
-$data = $mg->domains()->show('example.com');
-
-foreach ($data['receiving_dns_records'] as $record) {
-  echo isset($record['record_type']) ? $record['record_type'] : null;
-}
+$wk = Worker::create('key-example');
+$dns = $wk->minify()->HTML($datas);
 ```
+
+If you'd rather work with an array than an object you can inject the `ArrayHydrator`
+to the Worker class.
+
+### MINIFY IMAGES
+```php
+$wk = Worker::create('key-example');
+$dns = $wk->minify()->shrink($datas);
+```
+
+### CONVERT HTML TO AMP
+```php
+$wk = Worker::create('key-example');
+$dns = $wk->convert()->AMP($datas);
+```
+
+If you'd rather work with an array than an object you can inject the `ArrayHydrator`
+to the Worker class.
+
+### GEO IP
+```php
+$wk = Worker::create('key-example');
+$dns = $wk->ips()->infor($datas);
+``
 
 You can also use the `NoopHydrator` to get a PSR7 Response returned from
 the API calls.
@@ -131,10 +143,10 @@ $configurator->setEndpoint('http://bin.worker.net/aecf68de');
 $configurator->setApiKey('key-example');
 $configurator->setDebug(true);
 
-$mg = new Worker($configurator, new NoopHydrator());
+$wk = new Worker($configurator, new NoopHydrator());
 
 # Now, compose and send your message.
-$mg->messages()->send('example.com', [
+$wk->messages()->send('example.com', [
   'from'    => 'bob@example.com',
   'to'      => 'sally@example.com',
   'subject' => 'The PHP SDK is awesome!',
