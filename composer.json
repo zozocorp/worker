@@ -1,5 +1,5 @@
 {
-    "name": "mailgun/mailgun-php",
+    "name": "zozocorp/worker",
     "description": "The Mailgun SDK provides methods for all API functions.",
     "license": "MIT",
     "authors": [
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mailgun\\": "src/"
+            "zozocorp\\worker\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mailgun\\Tests\\": "tests/"
+            "zozocorp\\worker\\": "tests/"
         }
     }
 }
