@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "zozocorp\\worker\\": "src/"
+            "Mailgun\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "zozocorp\\worker\\": "tests/"
+            "Mailgun\\Tests\\": "tests/"
         }
     }
 }
