@@ -3,21 +3,21 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
 use Http\Client\Common\PluginClient;
-use Mailgun\Exception\HttpClientException;
-use Mailgun\Exception\HttpServerException;
-use Mailgun\Exception\UnknownErrorException;
-use Mailgun\HttpClient\RequestBuilder;
-use Mailgun\Hydrator\Hydrator;
-use Mailgun\Hydrator\NoopHydrator;
+use Worker\Exception\HttpClientException;
+use Worker\Exception\HttpServerException;
+use Worker\Exception\UnknownErrorException;
+use Worker\HttpClient\RequestBuilder;
+use Worker\Hydrator\Hydrator;
+use Worker\Hydrator\NoopHydrator;
 use Psr\Http\Client as Psr18;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;

@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Stats;
+namespace Worker\Tests\Model\Stats;
 
-use Mailgun\Model\Stats\TotalResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Stats\TotalResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class TotalResponseTest extends BaseModelTest
 {

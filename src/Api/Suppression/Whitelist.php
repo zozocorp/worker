@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api\Suppression;
+namespace Worker\Api\Suppression;
 
 use InvalidArgumentException;
-use Mailgun\Api\HttpApi;
-use Mailgun\Api\Pagination;
-use Mailgun\Assert;
-use Mailgun\Model\Suppression\Whitelist\CreateResponse;
-use Mailgun\Model\Suppression\Whitelist\DeleteAllResponse;
-use Mailgun\Model\Suppression\Whitelist\DeleteResponse;
-use Mailgun\Model\Suppression\Whitelist\ImportResponse;
-use Mailgun\Model\Suppression\Whitelist\IndexResponse;
-use Mailgun\Model\Suppression\Whitelist\ShowResponse;
+use Worker\Api\HttpApi;
+use Worker\Api\Pagination;
+use Worker\Assert;
+use Worker\Model\Suppression\Whitelist\CreateResponse;
+use Worker\Model\Suppression\Whitelist\DeleteAllResponse;
+use Worker\Model\Suppression\Whitelist\DeleteResponse;
+use Worker\Model\Suppression\Whitelist\ImportResponse;
+use Worker\Model\Suppression\Whitelist\IndexResponse;
+use Worker\Model\Suppression\Whitelist\ShowResponse;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-suppressions.html#whitelists
+ * @see https://documentation.worker.com/en/latest/api-suppressions.html#whitelists
  *
  * @author Artem Bondarenko <artem@uartema.com>
  */

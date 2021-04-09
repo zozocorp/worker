@@ -3,23 +3,23 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
-use Mailgun\Model\Route\CreateResponse;
-use Mailgun\Model\Route\DeleteResponse;
-use Mailgun\Model\Route\IndexResponse;
-use Mailgun\Model\Route\ShowResponse;
-use Mailgun\Model\Route\UpdateResponse;
+use Worker\Assert;
+use Worker\Model\Route\CreateResponse;
+use Worker\Model\Route\DeleteResponse;
+use Worker\Model\Route\IndexResponse;
+use Worker\Model\Route\ShowResponse;
+use Worker\Model\Route\UpdateResponse;
 
 /**
- * @see https://documentation.mailgun.com/api-routes.html
+ * @see https://documentation.worker.com/api-routes.html
  *
  * @author David Garcia <me@davidgarcia.cat>
  */

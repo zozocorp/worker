@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\EmailValidation;
+namespace Worker\Tests\Model\EmailValidation;
 
-use Mailgun\Model\EmailValidation\Parts;
-use Mailgun\Model\EmailValidation\ValidateResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\EmailValidation\Parts;
+use Worker\Model\EmailValidation\ValidateResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class ValidateResponseTest extends BaseModelTest
 {
@@ -22,7 +22,7 @@ class ValidateResponseTest extends BaseModelTest
         $json =
             <<<'JSON'
 {
-    "address": "foo@mailgun.net",
+    "address": "foo@worker.net",
     "did_you_mean": null,
     "is_disposable_address": false,
     "is_role_address": true,
@@ -30,7 +30,7 @@ class ValidateResponseTest extends BaseModelTest
     "mailbox_verification": "true",
     "parts": {
         "display_name": null,
-        "domain": "mailgun.net",
+        "domain": "worker.net",
         "local_part": "foo"
     }
 }
@@ -44,7 +44,7 @@ JSON;
         $json =
             <<<'JSON'
 {
-  "address": "foo@mailgun.net",
+  "address": "foo@worker.net",
   "did_you_mean": null,
   "is_disposable_address": false,
   "is_role_address": false,
@@ -52,7 +52,7 @@ JSON;
   "mailbox_verification": null,
   "parts": {
       "display_name": null,
-      "domain": "mailgun.net",
+      "domain": "worker.net",
       "local_part": "foo"
   },
   "reason": null
@@ -65,13 +65,13 @@ JSON;
     public function testEmailValidation()
     {
         $data = [
-            'address' => 'foo@mailgun.net',
+            'address' => 'foo@worker.net',
             'did_you_mean' => null,
             'is_disposable_address' => false,
             'is_role_address' => false,
             'is_valid' => true,
             'mailbox_verification' => null,
-            'parts' => ['display_name' => null, 'domain' => 'mailgun.net', 'local_part' => 'foo'],
+            'parts' => ['display_name' => null, 'domain' => 'worker.net', 'local_part' => 'foo'],
             'reason' => null,
         ];
 

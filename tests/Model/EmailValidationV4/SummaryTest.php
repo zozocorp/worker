@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Event;
+namespace Worker\Tests\Model\Event;
 
-use Mailgun\Model\EmailValidationV4\Summary;
-use Mailgun\Model\EmailValidationV4\SummaryResult;
-use Mailgun\Model\EmailValidationV4\SummaryRisk;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\EmailValidationV4\Summary;
+use Worker\Model\EmailValidationV4\SummaryResult;
+use Worker\Model\EmailValidationV4\SummaryRisk;
+use Worker\Tests\Model\BaseModelTest;
 
 class SummaryTest extends BaseModelTest
 {

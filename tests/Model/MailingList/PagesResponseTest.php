@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\MailingList;
+namespace Worker\Tests\Model\MailingList;
 
-use Mailgun\Model\MailingList\PagesResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\MailingList\PagesResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class PagesResponseTest extends BaseModelTest
 {
@@ -24,9 +24,9 @@ class PagesResponseTest extends BaseModelTest
   "items": [
     {
       "access_level": "everyone",
-      "address": "dev@samples.mailgun.org",
+      "address": "dev@samples.worker.org",
       "created_at": "Tue, 06 Mar 2012 05:44:45 GMT",
-      "description": "Mailgun developers list",
+      "description": "Worker developers list",
       "members_count": 1,
       "name": ""
     },

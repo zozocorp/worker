@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Exception;
+namespace Worker\Tests\Exception;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Exception\HttpClientException;
-use Mailgun\Tests\MailgunTestCase;
+use Worker\Exception\HttpClientException;
+use Worker\Tests\WorkerTestCase;
 
-class HttpClientExceptionTest extends MailgunTestCase
+class HttpClientExceptionTest extends WorkerTestCase
 {
     public function testBadRequestGetMessageJson()
     {

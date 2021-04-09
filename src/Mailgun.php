@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun;
+namespace Worker;
 
 use Http\Client\Common\PluginClient;
-use Mailgun\HttpClient\HttpClientConfigurator;
-use Mailgun\HttpClient\Plugin\History;
-use Mailgun\HttpClient\RequestBuilder;
-use Mailgun\Hydrator\Hydrator;
-use Mailgun\Hydrator\ModelHydrator;
+use Worker\HttpClient\HttpClientConfigurator;
+use Worker\HttpClient\Plugin\History;
+use Worker\HttpClient\RequestBuilder;
+use Worker\Hydrator\Hydrator;
+use Worker\Hydrator\ModelHydrator;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * This class is the base class for the Mailgun SDK.
+ * This class is the base class for the Worker SDK.
  */
-class Mailgun
+class Worker
 {
     /**
      * @var string|null

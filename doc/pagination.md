@@ -4,14 +4,14 @@ Some API endpoints do support pagination.
 
 ```php
 
-/** @var Mailgun\Model\Tag\IndexReponse $response */
-$response = $mailgun->tags()->index('example.com');
+/** @var Worker\Model\Tag\IndexReponse $response */
+$response = $worker->tags()->index('example.com');
 
 // Parse through the first response
 // ...
 
-$nextResponse = $mailgun->tags()->nextPage($response);
-$previousResponse = $mailgun->tags()->previousPage($response);
-$firstResponse = $mailgun->tags()->firstPage($response);
-$lastResponse = $mailgun->tags()->lastPage($response);
+$nextResponse = $worker->tags()->nextPage($response);
+$previousResponse = $worker->tags()->previousPage($response);
+$firstResponse = $worker->tags()->firstPage($response);
+$lastResponse = $worker->tags()->lastPage($response);
 ```

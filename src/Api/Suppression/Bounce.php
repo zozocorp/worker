@@ -3,26 +3,26 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api\Suppression;
+namespace Worker\Api\Suppression;
 
-use Mailgun\Api\HttpApi;
-use Mailgun\Api\Pagination;
-use Mailgun\Assert;
-use Mailgun\Model\Suppression\Bounce\CreateResponse;
-use Mailgun\Model\Suppression\Bounce\DeleteResponse;
-use Mailgun\Model\Suppression\Bounce\IndexResponse;
-use Mailgun\Model\Suppression\Bounce\ShowResponse;
+use Worker\Api\HttpApi;
+use Worker\Api\Pagination;
+use Worker\Assert;
+use Worker\Model\Suppression\Bounce\CreateResponse;
+use Worker\Model\Suppression\Bounce\DeleteResponse;
+use Worker\Model\Suppression\Bounce\IndexResponse;
+use Worker\Model\Suppression\Bounce\ShowResponse;
 
 /**
- * @see https://documentation.mailgun.com/api-suppressions.html#bounces
+ * @see https://documentation.worker.com/api-suppressions.html#bounces
  *
- * @author Sean Johnson <sean@mailgun.com>
+ * @author Sean Johnson <sean@worker.com>
  */
 class Bounce extends HttpApi
 {

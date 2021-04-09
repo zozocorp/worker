@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
-use Mailgun\Api\Attachment;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Model\Attachment\Attachment as Model;
+use Worker\Api\Attachment;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Model\Attachment\Attachment as Model;
 
 class AttachmentTest extends TestCase
 {
@@ -24,7 +24,7 @@ class AttachmentTest extends TestCase
 
     public function testShow()
     {
-        $uri = 'https://api.mailgun.org/v2/domains/mydomain.com/messages/WyJhOTM2NDk1ODA3Iiw/attachments/0';
+        $uri = 'https://api.worker.org/v2/domains/mydomain.com/messages/WyJhOTM2NDk1ODA3Iiw/attachments/0';
         $this->setRequestMethod('GET');
         $this->setHydrateClass(Model::class);
         $this->setRequestUri($uri);
@@ -37,13 +37,13 @@ class AttachmentTest extends TestCase
     {
         $api = $this->getApiInstance();
         $this->expectException(InvalidArgumentException::class);
-        $api->show('https://api.mailgun.org/v2/domains/mydomain.com');
+        $api->show('https://api.worker.org/v2/domains/mydomain.com');
     }
 
-    public function testShowNonMailgunUri()
+    public function testShowNonWorkerUri()
     {
         $api = $this->getApiInstance();
         $this->expectException(InvalidArgumentException::class);
-        $api->show('https://example.com/v2/domains/mailgun.net?x=attachments/0');
+        $api->show('https://example.com/v2/domains/worker.net?x=attachments/0');
     }
 }

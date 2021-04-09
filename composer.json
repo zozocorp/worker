@@ -1,6 +1,6 @@
 {
     "name": "zozocorp/worker",
-    "description": "The Mailgun SDK provides methods for all API functions.",
+    "description": "The Worker SDK provides methods for all API functions.",
     "license": "MIT",
     "authors": [
         {

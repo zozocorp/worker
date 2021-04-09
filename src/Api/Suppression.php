@@ -3,26 +3,26 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Api\Suppression\Bounce;
-use Mailgun\Api\Suppression\Complaint;
-use Mailgun\Api\Suppression\Unsubscribe;
-use Mailgun\Api\Suppression\Whitelist;
-use Mailgun\HttpClient\RequestBuilder;
-use Mailgun\Hydrator\Hydrator;
+use Worker\Api\Suppression\Bounce;
+use Worker\Api\Suppression\Complaint;
+use Worker\Api\Suppression\Unsubscribe;
+use Worker\Api\Suppression\Whitelist;
+use Worker\HttpClient\RequestBuilder;
+use Worker\Hydrator\Hydrator;
 use Psr\Http\Client\ClientInterface;
 
 /**
- * @see https://documentation.mailgun.com/api-suppressions.html
+ * @see https://documentation.worker.com/api-suppressions.html
  *
- * @author Sean Johnson <sean@mailgun.com>
+ * @author Sean Johnson <sean@worker.com>
  */
 class Suppression
 {

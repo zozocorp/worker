@@ -1,14 +1,14 @@
-# Mailgun PHP client
+# Worker PHP client
 
-This is the Mailgun PHP SDK. This SDK contains methods for easily interacting
-with the Mailgun API. Below are examples to get you started. For additional
-examples, please see our official documentation at http://documentation.mailgun.com
+This is the Worker PHP SDK. This SDK contains methods for easily interacting
+with the Worker API. Below are examples to get you started. For additional
+examples, please see our official documentation at http://documentation.worker.com
 
-[![Latest Version](https://img.shields.io/github/release/mailgun/mailgun-php.svg?style=flat-square)](https://github.com/mailgun/mailgun-php/releases)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/mailgun/mailgun-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/mailgun/mailgun-php)
-[![Quality Score](https://img.shields.io/scrutinizer/g/mailgun/mailgun-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/mailgun/mailgun-php)
-[![Total Downloads](https://img.shields.io/packagist/dt/mailgun/mailgun-php.svg?style=flat-square)](https://packagist.org/packages/mailgun/mailgun-php)
-[![Join the chat at https://gitter.im/mailgun/mailgun-php](https://badges.gitter.im/mailgun/mailgun-php.svg)](https://gitter.im/mailgun/mailgun-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Latest Version](https://img.shields.io/github/release/worker/worker-php.svg?style=flat-square)](https://github.com/worker/worker-php/releases)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
+[![Quality Score](https://img.shields.io/scrutinizer/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
+[![Total Downloads](https://img.shields.io/packagist/dt/worker/worker-php.svg?style=flat-square)](https://packagist.org/packages/worker/worker-php)
+[![Join the chat at https://gitter.im/worker/worker-php](https://badges.gitter.im/worker/worker-php.svg)](https://gitter.im/worker/worker-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Installation
 
@@ -21,7 +21,7 @@ composer:
 curl -sS https://getcomposer.org/installer | php
 ```
 
-The Mailgun API Client is not hard coupled to Guzzle, Buzz or any other library that sends
+The Worker API Client is not hard coupled to Guzzle, Buzz or any other library that sends
 HTTP messages. Instead, it uses the [PSR-18](https://www.php-fig.org/psr/psr-18/) client abstraction.
 This will give you the flexibility to choose what
 [PSR-7 implementation and HTTP client](https://packagist.org/providers/php-http/client-implementation)
@@ -30,7 +30,7 @@ you want to use.
 If you just want to get started quickly you should run the following command:
 
 ```bash
-composer require mailgun/mailgun-php kriswallsmith/buzz nyholm/psr7
+composer require worker/worker-php kriswallsmith/buzz nyholm/psr7
 ```
 
 ## Usage
@@ -41,15 +41,15 @@ file:
 
 ```php
 require 'vendor/autoload.php';
-use Mailgun\Mailgun;
+use Worker\Worker;
 ```
 
 Here's how to send a message using the SDK:
 
 ```php
 // First, instantiate the SDK with your API credentials
-$mg = Mailgun::create('key-example'); // For US servers
-$mg = Mailgun::create('key-example', 'https://api.eu.mailgun.net'); // For EU servers
+$mg = Worker::create('key-example'); // For US servers
+$mg = Worker::create('key-example', 'https://api.eu.worker.net'); // For EU servers
 
 // Now, compose and send your message.
 // $mg->messages()->send($domain, $params);
@@ -61,12 +61,12 @@ $mg->messages()->send('example.com', [
 ]);
 ```
 
-Attention: `$domain` must match to the domain you have configured on [app.mailgun.com](https://app.mailgun.com/app/domains).
+Attention: `$domain` must match to the domain you have configured on [app.worker.com](https://app.worker.com/app/domains).
 
 ### All usage examples
 
 You will find more detailed documentation at [/doc](doc/index.md) and on
-[https://documentation.mailgun.com](https://documentation.mailgun.com/en/latest/api_reference.html).
+[https://documentation.worker.com](https://documentation.worker.com/en/latest/api_reference.html).
 
 ### Response
 
@@ -75,7 +75,7 @@ to understand the response without reading the documentation. One can just read 
 doc blocks on the response classes. This provides an excellent IDE integration.
 
 ```php
-$mg = Mailgun::create('key-example');
+$mg = Worker::create('key-example');
 $dns = $mg->domains()->show('example.com')->getInboundDNSRecords();
 
 foreach ($dns as $record) {
@@ -84,15 +84,15 @@ foreach ($dns as $record) {
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
-to the Mailgun class.
+to the Worker class.
 
 ```php
-use Mailgun\Hydrator\ArrayHydrator;
+use Worker\Hydrator\ArrayHydrator;
 
 $configurator = new HttpClientConfigurator();
 $configurator->setApiKey('key-example');
 
-$mg = new Mailgun($configurator, new ArrayHydrator());
+$mg = new Worker($configurator, new ArrayHydrator());
 $data = $mg->domains()->show('example.com');
 
 foreach ($data['receiving_dns_records'] as $record) {
@@ -110,28 +110,28 @@ the API calls.
 Debugging the PHP SDK can be helpful when things aren't working quite right.
 To debug the SDK, here are some suggestions:
 
-Set the endpoint to Mailgun's Postbin. A Postbin is a web service that allows you to
+Set the endpoint to Worker's Postbin. A Postbin is a web service that allows you to
 post data, which then you can display it through a browser. Using Postbin is an easy way
-to quickly determine what data you're transmitting to Mailgun's API.
+to quickly determine what data you're transmitting to Worker's API.
 
 **Step 1 - Create a new Postbin.**
-Go to http://bin.mailgun.net. The Postbin will generate a special URL. Save that URL.
+Go to http://bin.worker.net. The Postbin will generate a special URL. Save that URL.
 
-**Step 2 - Instantiate the Mailgun client using Postbin.**
+**Step 2 - Instantiate the Worker client using Postbin.**
 
-*Tip: The bin id will be the URL part after bin.mailgun.net. It will be random generated letters and numbers.
-For example, the bin id in this URL (http://bin.mailgun.net/aecf68de) is `aecf68de`.*
+*Tip: The bin id will be the URL part after bin.worker.net. It will be random generated letters and numbers.
+For example, the bin id in this URL (http://bin.worker.net/aecf68de) is `aecf68de`.*
 
 ```php
-use Mailgun\HttpClient\HttpClientConfigurator;
-use Mailgun\Hydrator\NoopHydrator;
+use Worker\HttpClient\HttpClientConfigurator;
+use Worker\Hydrator\NoopHydrator;
 
 $configurator = new HttpClientConfigurator();
-$configurator->setEndpoint('http://bin.mailgun.net/aecf68de');
+$configurator->setEndpoint('http://bin.worker.net/aecf68de');
 $configurator->setApiKey('key-example');
 $configurator->setDebug(true);
 
-$mg = new Mailgun($configurator, new NoopHydrator());
+$mg = new Worker($configurator, new NoopHydrator());
 
 # Now, compose and send your message.
 $mg->messages()->send('example.com', [
@@ -146,8 +146,8 @@ $mg->messages()->send('example.com', [
 For usage examples on each API endpoint, head over to our official documentation
 pages.
 
-This SDK includes a [Message Builder](src/Mailgun/Messages/README.md),
-[Batch Message](src/Mailgun/Messages/README.md) and [Opt-In Handler](src/Mailgun/Lists/README.md) component.
+This SDK includes a [Message Builder](src/Worker/Messages/README.md),
+[Batch Message](src/Worker/Messages/README.md) and [Opt-In Handler](src/Worker/Lists/README.md) component.
 
 Message Builder allows you to quickly create the array of parameters, required
 to send a message, by calling a methods for each parameter.
@@ -159,10 +159,10 @@ batch messaging is eliminated!
 
 If you are using a framework you might consider these composer packages to make the framework integration easier.
 
-* [tehplague/swiftmailer-mailgun-bundle](https://github.com/tehplague/swiftmailer-mailgun-bundle) for Symfony
-* [katanyoo/yii2-mailgun-mailer](https://github.com/katanyoo/yii2-mailgun-mailer) for Yii2
-* [narendravaghela/cakephp-mailgun](https://github.com/narendravaghela/cakephp-mailgun) for CakePHP
-* [drupal/mailgun](https://www.drupal.org/project/mailgun) for Drupal
+* [tehplague/swiftmailer-worker-bundle](https://github.com/tehplague/swiftmailer-worker-bundle) for Symfony
+* [katanyoo/yii2-worker-mailer](https://github.com/katanyoo/yii2-worker-mailer) for Yii2
+* [narendravaghela/cakephp-worker](https://github.com/narendravaghela/cakephp-worker) for CakePHP
+* [drupal/worker](https://www.drupal.org/project/worker) for Drupal
 
 ## Contribute
 
@@ -179,20 +179,20 @@ Feel free to contribute in any way. As an example you may:
 If you want to run the tests you should run the following commands:
 
 ```terminal
-git clone git@github.com:mailgun/mailgun-php.git
-cd mailgun-php
+git clone git@github.com:worker/worker-php.git
+cd worker-php
 composer update
 composer test
 ```
 
 ## Support and Feedback
 
-Be sure to visit the Mailgun official
-[documentation website](http://documentation.mailgun.com/) for additional
+Be sure to visit the Worker official
+[documentation website](http://documentation.worker.com/) for additional
 information about our API.
 
 If you find a bug, please submit the issue in Github directly.
-[Mailgun-PHP Issues](https://github.com/mailgun/mailgun-php/issues)
+[Worker-PHP Issues](https://github.com/worker/worker-php/issues)
 
 As always, if you need additional assistance, drop us a note through your account at
-[https://app.mailgun.com/app/support/list](https://app.mailgun.com/app/support/list).
+[https://app.worker.com/app/support/list](https://app.worker.com/app/support/list).

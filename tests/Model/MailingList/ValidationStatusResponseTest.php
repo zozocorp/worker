@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\MailingList;
+namespace Worker\Tests\Model\MailingList;
 
-use Mailgun\Model\MailingList\ValidationStatusDownloadUrl;
-use Mailgun\Model\MailingList\ValidationStatusResponse;
-use Mailgun\Model\MailingList\ValidationStatusSummary;
-use Mailgun\Model\MailingList\ValidationStatusSummaryResult;
-use Mailgun\Model\MailingList\ValidationStatusSummaryRisk;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\MailingList\ValidationStatusDownloadUrl;
+use Worker\Model\MailingList\ValidationStatusResponse;
+use Worker\Model\MailingList\ValidationStatusSummary;
+use Worker\Model\MailingList\ValidationStatusSummaryResult;
+use Worker\Model\MailingList\ValidationStatusSummaryRisk;
+use Worker\Tests\Model\BaseModelTest;
 
 class ValidationStatusResponseTest extends BaseModelTest
 {
@@ -30,7 +30,7 @@ class ValidationStatusResponseTest extends BaseModelTest
         "csv": "http://example.com/filname.csv",
         "json": "http://example.com/filname.json"
     },
-    "id": "listname@mydomain.sandbox.mailgun.org",
+    "id": "listname@mydomain.sandbox.worker.org",
     "quantity": 207665,
     "records_processed": 207665,
     "status": "uploaded",
@@ -55,7 +55,7 @@ JSON;
         $this->assertInstanceOf(ValidationStatusDownloadUrl::class, $model->getDownloadUrl());
         $this->assertEquals('http://example.com/filname.csv', $model->getDownloadUrl()->getCsv());
         $this->assertEquals('http://example.com/filname.json', $model->getDownloadUrl()->getJson());
-        $this->assertEquals('listname@mydomain.sandbox.mailgun.org', $model->getId());
+        $this->assertEquals('listname@mydomain.sandbox.worker.org', $model->getId());
         $this->assertEquals(207665, $model->getQuantity());
         $this->assertEquals(207665, $model->getRecordsProcessed());
         $this->assertEquals('uploaded', $model->getStatus());

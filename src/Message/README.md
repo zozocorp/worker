@@ -1,9 +1,9 @@
-Mailgun - Messages
+Worker - Messages
 ==================
 
-This is the Mailgun PHP *Message* utilities. 
+This is the Worker PHP *Message* utilities. 
 
-The below assumes you've already installed the Mailgun PHP SDK in to your 
+The below assumes you've already installed the Worker PHP SDK in to your 
 project. If not, go back to the master README for instructions.
 
 There are two utilities included, `MessageBuilder` and `BatchMessage`. 
@@ -41,7 +41,7 @@ $builder->setDeliveryTime("tomorrow 8:00AM", "PST");
 $builder->setClickTracking(true);
 
 # Finally, send the message.
-$mg = Mailgun::create('key-example');
+$mg = Worker::create('key-example');
 $domain = ;
 $mg->messages()->send("example.com", $builder->getMessage());
 ```
@@ -52,7 +52,7 @@ Here's how to use Batch Message to easily handle batch sending jobs.
 
 ```php
 # First, instantiate the SDK with your API credentials and define your domain. 
-$mg = new Mailgun("key-example");
+$mg = new Worker("key-example");
 
 # Next, instantiate a Message Builder object from the SDK, pass in your sending domain.
 $batchMessage = $mg->messages()->getBatchMessage("example.com");
@@ -80,5 +80,5 @@ $messageIds = $batchMessage->getMessageIds();
 
 More Documentation
 ------------------
-See the official [Mailgun Docs](http://documentation.mailgun.com/api-sending.html) 
+See the official [Worker Docs](http://documentation.worker.com/api-sending.html) 
 for more information.

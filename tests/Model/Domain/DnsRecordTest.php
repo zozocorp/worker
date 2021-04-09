@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Domain;
+namespace Worker\Tests\Model\Domain;
 
-use Mailgun\Model\Domain\DnsRecord;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Domain\DnsRecord;
+use Worker\Tests\Model\BaseModelTest;
 
 class DnsRecordTest extends BaseModelTest
 {
@@ -24,7 +24,7 @@ class DnsRecordTest extends BaseModelTest
   "record_type": "TXT",
   "valid": "valid",
   "name": "example.com",
-  "value": "v=spf1 include:mailgun.org ~all"
+  "value": "v=spf1 include:worker.org ~all"
 }
 JSON;
         $model = DnsRecord::create(json_decode($json, true));

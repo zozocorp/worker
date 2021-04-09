@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
+use Worker\Assert;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -25,7 +25,7 @@ class Attachment extends HttpApi
     public function show(string $url)
     {
         Assert::stringNotEmpty($url);
-        Assert::regex($url, '@https://.*mailgun\.(net|org)/v.+@');
+        Assert::regex($url, '@https://.*worker\.(net|org)/v.+@');
         Assert::regex($url, '|/attachments/[0-9]+|');
 
         $response = $this->httpGet($url);

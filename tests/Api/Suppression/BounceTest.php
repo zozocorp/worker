@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
-use Mailgun\Api\Suppression\Bounce;
-use Mailgun\Model\Suppression\Bounce\CreateResponse;
-use Mailgun\Model\Suppression\Bounce\DeleteResponse;
-use Mailgun\Model\Suppression\Bounce\IndexResponse;
-use Mailgun\Model\Suppression\Bounce\ShowResponse;
+use Worker\Api\Suppression\Bounce;
+use Worker\Model\Suppression\Bounce\CreateResponse;
+use Worker\Model\Suppression\Bounce\DeleteResponse;
+use Worker\Model\Suppression\Bounce\IndexResponse;
+use Worker\Model\Suppression\Bounce\ShowResponse;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>

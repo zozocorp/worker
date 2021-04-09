@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Tag;
+namespace Worker\Tests\Model\Tag;
 
-use Mailgun\Model\Tag\IndexResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Tag\IndexResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class IndexResponseTest extends BaseModelTest
 {

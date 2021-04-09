@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\MailingList\Member;
+namespace Worker\Tests\Model\MailingList\Member;
 
-use Mailgun\Model\MailingList\Member\CreateResponse;
-use Mailgun\Model\MailingList\Member\Member;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\MailingList\Member\CreateResponse;
+use Worker\Model\MailingList\Member\Member;
+use Worker\Tests\Model\BaseModelTest;
 
 class CreateResponseTest extends BaseModelTest
 {

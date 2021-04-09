@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Hydrator\ModelHydrator;
+use Worker\Hydrator\ModelHydrator;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -58,12 +58,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
                 ->method('sendRequest');
         }
         if (null === $requestClient) {
-            $requestClient = $this->getMockBuilder('Mailgun\HttpClient\RequestBuilder')
+            $requestClient = $this->getMockBuilder('Worker\HttpClient\RequestBuilder')
                 ->setMethods(['create'])
                 ->getMock();
         }
         if (null === $hydrator) {
-            $hydrator = $this->getMockBuilder('Mailgun\Hydrator\Hydrator')
+            $hydrator = $this->getMockBuilder('Worker\Hydrator\Hydrator')
                 ->setMethods(['hydrate'])
                 ->getMock();
         }
@@ -87,7 +87,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             ->method('sendRequest')
             ->willReturn(null === $this->httpResponse ? new Response() : $this->httpResponse);
 
-        $requestClient = $this->getMockBuilder('Mailgun\HttpClient\RequestBuilder')
+        $requestClient = $this->getMockBuilder('Worker\HttpClient\RequestBuilder')
             ->setMethods(['create'])
             ->getMock();
 
@@ -110,7 +110,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
         $hydrator = new ModelHydrator();
         if (null === $this->httpResponse) {
-            $hydrator = $this->getMockBuilder('Mailgun\Hydrator\Hydrator')
+            $hydrator = $this->getMockBuilder('Worker\Hydrator\Hydrator')
                 ->setMethods(['hydrate'])
                 ->getMock();
 

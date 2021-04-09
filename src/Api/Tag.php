@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
-use Mailgun\Model\Tag\CountryResponse;
-use Mailgun\Model\Tag\DeleteResponse;
-use Mailgun\Model\Tag\DeviceResponse;
-use Mailgun\Model\Tag\IndexResponse;
-use Mailgun\Model\Tag\ProviderResponse;
-use Mailgun\Model\Tag\ShowResponse;
-use Mailgun\Model\Tag\StatisticsResponse;
-use Mailgun\Model\Tag\UpdateResponse;
+use Worker\Assert;
+use Worker\Model\Tag\CountryResponse;
+use Worker\Model\Tag\DeleteResponse;
+use Worker\Model\Tag\DeviceResponse;
+use Worker\Model\Tag\IndexResponse;
+use Worker\Model\Tag\ProviderResponse;
+use Worker\Model\Tag\ShowResponse;
+use Worker\Model\Tag\StatisticsResponse;
+use Worker\Model\Tag\UpdateResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-tags.html
+ * @see https://documentation.worker.com/en/latest/api-tags.html
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */

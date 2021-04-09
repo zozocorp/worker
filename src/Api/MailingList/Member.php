@@ -3,26 +3,26 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api\MailingList;
+namespace Worker\Api\MailingList;
 
-use Mailgun\Api\HttpApi;
-use Mailgun\Assert;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Model\MailingList\Member\CreateResponse;
-use Mailgun\Model\MailingList\Member\DeleteResponse;
-use Mailgun\Model\MailingList\Member\IndexResponse;
-use Mailgun\Model\MailingList\Member\ShowResponse;
-use Mailgun\Model\MailingList\Member\UpdateResponse;
-use Mailgun\Model\MailingList\UpdateResponse as MailingListUpdateResponse;
+use Worker\Api\HttpApi;
+use Worker\Assert;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Model\MailingList\Member\CreateResponse;
+use Worker\Model\MailingList\Member\DeleteResponse;
+use Worker\Model\MailingList\Member\IndexResponse;
+use Worker\Model\MailingList\Member\ShowResponse;
+use Worker\Model\MailingList\Member\UpdateResponse;
+use Worker\Model\MailingList\UpdateResponse as MailingListUpdateResponse;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-mailinglists.html
+ * @see https://documentation.worker.com/en/latest/api-mailinglists.html
  */
 class Member extends HttpApi
 {

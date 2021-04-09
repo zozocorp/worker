@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Message;
+namespace Worker\Tests\Message;
 
-use Mailgun\Message\MessageBuilder;
-use Mailgun\Tests\MailgunTestCase;
+use Worker\Message\MessageBuilder;
+use Worker\Tests\WorkerTestCase;
 use Nyholm\NSA;
 
-class MessageBuilderTest extends MailgunTestCase
+class MessageBuilderTest extends WorkerTestCase
 {
     /**
      * @var MessageBuilder
@@ -47,28 +47,28 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testAddToRecipient()
     {
-        $this->messageBuilder->addToRecipient('test@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->addToRecipient('test@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
         $message = $this->messageBuilder->getMessage();
-        $this->assertEquals(['to' => ['"Test User" <test@samples.mailgun.org>']], $message);
+        $this->assertEquals(['to' => ['"Test User" <test@samples.worker.org>']], $message);
     }
 
     public function testAddCcRecipient()
     {
-        $this->messageBuilder->addCcRecipient('test@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->addCcRecipient('test@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
         $message = $this->messageBuilder->getMessage();
-        $this->assertEquals(['cc' => ['"Test User" <test@samples.mailgun.org>']], $message);
+        $this->assertEquals(['cc' => ['"Test User" <test@samples.worker.org>']], $message);
     }
 
     public function testAddBccRecipient()
     {
-        $this->messageBuilder->addBccRecipient('test@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->addBccRecipient('test@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
         $message = $this->messageBuilder->getMessage();
-        $this->assertEquals(['bcc' => ['"Test User" <test@samples.mailgun.org>']], $message);
+        $this->assertEquals(['bcc' => ['"Test User" <test@samples.worker.org>']], $message);
     }
 
     public function testToRecipientCount()
     {
-        $this->messageBuilder->addToRecipient('test-user@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->addToRecipient('test-user@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
 
         $array = NSA::getProperty($this->messageBuilder, 'counters');
         $this->assertEquals(1, $array['recipients']['to']);
@@ -76,7 +76,7 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testCcRecipientCount()
     {
-        $this->messageBuilder->addCcRecipient('test-user@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->addCcRecipient('test-user@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
 
         $array = NSA::getProperty($this->messageBuilder, 'counters');
         $this->assertEquals(1, $array['recipients']['cc']);
@@ -84,7 +84,7 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testBccRecipientCount()
     {
-        $this->messageBuilder->addBccRecipient('test-user@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->addBccRecipient('test-user@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
 
         $array = NSA::getProperty($this->messageBuilder, 'counters');
         $this->assertEquals(1, $array['recipients']['bcc']);
@@ -92,17 +92,17 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testSetFromAddress()
     {
-        $this->messageBuilder->setFromAddress('test@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->setFromAddress('test@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
         $message = $this->messageBuilder->getMessage();
-        $this->assertEquals(['from' => ['"Test User" <test@samples.mailgun.org>']], $message);
+        $this->assertEquals(['from' => ['"Test User" <test@samples.worker.org>']], $message);
     }
 
     public function testSetReplyTo()
     {
-        $this->messageBuilder->setReplyToAddress('overwritten@samples.mailgun.org');
-        $this->messageBuilder->setReplyToAddress('test@samples.mailgun.org', ['first' => 'Test', 'last' => 'User']);
+        $this->messageBuilder->setReplyToAddress('overwritten@samples.worker.org');
+        $this->messageBuilder->setReplyToAddress('test@samples.worker.org', ['first' => 'Test', 'last' => 'User']);
         $message = $this->messageBuilder->getMessage();
-        $this->assertEquals(['h:reply-to' => '"Test User" <test@samples.mailgun.org>'], $message);
+        $this->assertEquals(['h:reply-to' => '"Test User" <test@samples.worker.org>'], $message);
     }
 
     public function testSetSubject()
@@ -143,13 +143,13 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testAddAttachments()
     {
-        $this->messageBuilder->addAttachment('@../TestAssets/mailgun_icon.png');
+        $this->messageBuilder->addAttachment('@../TestAssets/worker_icon.png');
         $this->messageBuilder->addAttachment('@../TestAssets/rackspace_logo.png');
         $message = $this->messageBuilder->getMessage();
         $this->assertEquals(
             [
                 [
-                    'filePath' => '@../TestAssets/mailgun_icon.png',
+                    'filePath' => '@../TestAssets/worker_icon.png',
                     'filename' => null,
                 ],
                 [
@@ -163,13 +163,13 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testAddInlineImages()
     {
-        $this->messageBuilder->addInlineImage('@../TestAssets/mailgun_icon.png');
+        $this->messageBuilder->addInlineImage('@../TestAssets/worker_icon.png');
         $this->messageBuilder->addInlineImage('@../TestAssets/rackspace_logo.png');
         $message = $this->messageBuilder->getMessage();
         $this->assertEquals(
             [
                 [
-                    'filePath' => '@../TestAssets/mailgun_icon.png',
+                    'filePath' => '@../TestAssets/worker_icon.png',
                     'filename' => null,
                 ],
                 [
@@ -183,13 +183,13 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testAddAttachmentsPostName()
     {
-        $this->messageBuilder->addAttachment('@../TestAssets/mailgun_icon.png', 'mg_icon.png');
+        $this->messageBuilder->addAttachment('@../TestAssets/worker_icon.png', 'mg_icon.png');
         $this->messageBuilder->addAttachment('@../TestAssets/rackspace_logo.png', 'rs_logo.png');
         $message = $this->messageBuilder->getMessage();
         $this->assertEquals(
             [
                 [
-                    'filePath' => '@../TestAssets/mailgun_icon.png',
+                    'filePath' => '@../TestAssets/worker_icon.png',
                     'filename' => 'mg_icon.png',
                 ],
                 [
@@ -203,13 +203,13 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testAddInlineImagePostName()
     {
-        $this->messageBuilder->addInlineImage('@../TestAssets/mailgun_icon.png', 'mg_icon.png');
+        $this->messageBuilder->addInlineImage('@../TestAssets/worker_icon.png', 'mg_icon.png');
         $this->messageBuilder->addInlineImage('@../TestAssets/rackspace_logo.png', 'rs_logo.png');
         $message = $this->messageBuilder->getMessage();
         $this->assertEquals(
             [
                 [
-                    'filePath' => '@../TestAssets/mailgun_icon.png',
+                    'filePath' => '@../TestAssets/worker_icon.png',
                     'filename' => 'mg_icon.png',
                 ],
                 [
@@ -303,9 +303,9 @@ class MessageBuilderTest extends MailgunTestCase
 
     public function testAddCustomData()
     {
-        $this->messageBuilder->addCustomData('My-Super-Awesome-Data', ['What' => 'Mailgun Rocks!']);
+        $this->messageBuilder->addCustomData('My-Super-Awesome-Data', ['What' => 'Worker Rocks!']);
         $message = $this->messageBuilder->getMessage();
-        $this->assertEquals(['v:My-Super-Awesome-Data' => '{"What":"Mailgun Rocks!"}'], $message);
+        $this->assertEquals(['v:My-Super-Awesome-Data' => '{"What":"Worker Rocks!"}'], $message);
     }
 
     public function testAddCustomParameter()

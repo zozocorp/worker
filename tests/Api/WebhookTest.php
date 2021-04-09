@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
-use Mailgun\Api\Webhook;
-use Mailgun\Model\Webhook\CreateResponse;
-use Mailgun\Model\Webhook\DeleteResponse;
-use Mailgun\Model\Webhook\IndexResponse;
-use Mailgun\Model\Webhook\ShowResponse;
-use Mailgun\Model\Webhook\UpdateResponse;
+use Worker\Api\Webhook;
+use Worker\Model\Webhook\CreateResponse;
+use Worker\Model\Webhook\DeleteResponse;
+use Worker\Model\Webhook\IndexResponse;
+use Worker\Model\Webhook\ShowResponse;
+use Worker\Model\Webhook\UpdateResponse;
 
 class WebhookTest extends TestCase
 {

@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Event;
+namespace Worker\Tests\Model\Event;
 
-use Mailgun\Model\EmailValidationV4\Job;
-use Mailgun\Model\EmailValidationV4\JobDownloadUrl;
-use Mailgun\Model\EmailValidationV4\Summary;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\EmailValidationV4\Job;
+use Worker\Model\EmailValidationV4\JobDownloadUrl;
+use Worker\Model\EmailValidationV4\Summary;
+use Worker\Tests\Model\BaseModelTest;
 
 class JobTest extends BaseModelTest
 {
@@ -28,7 +28,7 @@ class JobTest extends BaseModelTest
         "csv": "<download_link>",
         "json": "<download_link>"
     },
-    "id": "bulk_validations_sandbox_mailgun_org",
+    "id": "bulk_validations_sandbox_worker_org",
     "quantity": 207,
     "records_processed": 208,
     "status": "uploaded",
@@ -52,7 +52,7 @@ JSON;
         $model = Job::create(json_decode($json, true));
         $this->assertEquals('2020-05-21 16:56:31', $model->getCreatedAt()->format('Y-m-d H:i:s'));
         $this->assertInstanceOf(JobDownloadUrl::class, $model->getDownloadUrl());
-        $this->assertEquals('bulk_validations_sandbox_mailgun_org', $model->getId());
+        $this->assertEquals('bulk_validations_sandbox_worker_org', $model->getId());
         $this->assertEquals(207, $model->getQuantity());
         $this->assertEquals(208, $model->getRecordsProcessed());
         $this->assertEquals('uploaded', $model->getStatus());

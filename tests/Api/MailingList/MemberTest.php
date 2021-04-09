@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api\MailingList;
+namespace Worker\Tests\Api\MailingList;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\MailingList;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Tests\Api\TestCase;
+use Worker\Api\MailingList;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Tests\Api\TestCase;
 
 class MemberTest extends TestCase
 {

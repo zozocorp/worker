@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Hydrator\ModelHydrator;
-use Mailgun\Model\Stats\TotalResponse;
-use Mailgun\Model\Stats\TotalResponseItem;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Hydrator\ModelHydrator;
+use Worker\Model\Stats\TotalResponse;
+use Worker\Model\Stats\TotalResponseItem;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
@@ -24,7 +24,7 @@ class StatsTest extends TestCase
 {
     protected function getApiClass()
     {
-        return 'Mailgun\Api\Stats';
+        return 'Worker\Api\Stats';
     }
 
     /**

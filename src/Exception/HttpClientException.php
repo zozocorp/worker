@@ -3,15 +3,15 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Exception;
+namespace Worker\Exception;
 
-use Mailgun\Exception;
+use Worker\Exception;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -75,7 +75,7 @@ final class HttpClientException extends \RuntimeException implements Exception
 
     public static function notFound(ResponseInterface $response)
     {
-        return new self('The endpoint you have tried to access does not exist. Check if the domain matches the domain you have configure on Mailgun.', 404, $response);
+        return new self('The endpoint you have tried to access does not exist. Check if the domain matches the domain you have configure on Worker.', 404, $response);
     }
 
     public static function payloadTooLarge(ResponseInterface $response)

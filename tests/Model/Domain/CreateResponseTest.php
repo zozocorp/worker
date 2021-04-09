@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Domain;
+namespace Worker\Tests\Model\Domain;
 
-use Mailgun\Model\Domain\CreateResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Domain\CreateResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class CreateResponseTest extends BaseModelTest
 {
@@ -35,13 +35,13 @@ class CreateResponseTest extends BaseModelTest
       "priority": "10",
       "record_type": "MX",
       "valid": "valid",
-      "value": "mxa.mailgun.org"
+      "value": "mxa.worker.org"
     },
     {
       "priority": "10",
       "record_type": "MX",
       "valid": "valid",
-      "value": "mxb.mailgun.org"
+      "value": "mxb.worker.org"
     }
   ],
   "message": "Domain has been created",
@@ -50,7 +50,7 @@ class CreateResponseTest extends BaseModelTest
       "record_type": "TXT",
       "valid": "valid",
       "name": "example.com",
-      "value": "v=spf1 include:mailgun.org ~all"
+      "value": "v=spf1 include:worker.org ~all"
     },
     {
       "record_type": "TXT",
@@ -62,7 +62,7 @@ class CreateResponseTest extends BaseModelTest
       "record_type": "CNAME",
       "valid": "valid",
       "name": "email.example.com",
-      "value": "mailgun.org"
+      "value": "worker.org"
     }
   ]
 }

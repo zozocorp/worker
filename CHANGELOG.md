@@ -19,7 +19,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 ### Added
 
 - Email Validation (#726 by @uavn)
-  - Please note the Email Validation requires **always** to use the US servers. The Mailgun Team didn't enable this service on the European endpoints.
+  - Please note the Email Validation requires **always** to use the US servers. The Worker Team didn't enable this service on the European endpoints.
 
 ## 3.3.0
 
@@ -72,7 +72,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 ### Changed
 
 - Updated examples for Debugging and Hydrator usage (#634 by @tonybolzan and #681 by @Jiia)
-- Updated link to the Mailgun Documentation page (#688 by @Casmo)
+- Updated link to the Worker Documentation page (#688 by @Casmo)
 - Remove deprecated Laravel package due to it is archived (#695 by @tomschlick)
 
 ### Removed
@@ -84,14 +84,14 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 ### Added
 
 - Support for PSR-4
-- All classes `Mailgun\Model` are final or abstract.
+- All classes `Worker\Model` are final or abstract.
 
 ### Changed
 
 - Dropped PHP5 support
 - Removed deprecated code
-- Moved `RequestBuilder` and `HttpClientConfigurator` to `Mailgun\HttpClient` namespace
-- Updated signature of `Mailgun::__construct()`
+- Moved `RequestBuilder` and `HttpClientConfigurator` to `Worker\HttpClient` namespace
+- Updated signature of `Worker::__construct()`
 
 ### Removed
 
@@ -124,16 +124,16 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 
 ### Added
 
-- Allow to set the Mailgun server when instantiating the Mailgun's client: `$mailgun = Mailgun::create('key', 'server');`
+- Allow to set the Worker server when instantiating the Worker's client: `$worker = Worker::create('key', 'server');`
 - Add new PHPUnit tests for our models
 - Add new PHPUnit tests for our API
-- Added `Mailgun\Api\Attachment`
+- Added `Worker\Api\Attachment`
 - Fluent interface for `MessageBuilder` and `BatchMessage`
 - Support for HTTPlug 2.0
 
 ### Changed
 
-- Second argument to `Mailgun\Message\MessageBuilder::addBccRecipient()` is now optional.
+- Second argument to `Worker\Message\MessageBuilder::addBccRecipient()` is now optional.
 - We try to close open resources
 
 ### Fixed
@@ -171,7 +171,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 ### Fixed
 
 - Fix `Tags` on `Unsubscribe`
-- Fix typo on `Mailgun\Exception\HttpServerException`
+- Fix typo on `Worker\Exception\HttpServerException`
 
 ## 2.4.0
 
@@ -220,7 +220,7 @@ The change log describes what is "Added", "Removed", "Changed" or "Fixed" betwee
 
 ### Added
 
-- Support for sending messages with Mime. `$mailgun->messages()->sendMime()`
+- Support for sending messages with Mime. `$worker->messages()->sendMime()`
 
 ## 2.2.0
 
@@ -229,16 +229,16 @@ endpoints are grouped like the API documentation.
 
 ### Added
 
-- Api classes in Mailgun\Api\*
-- Api models/responses in Mailgun\Model\*
+- Api classes in Worker\Api\*
+- Api models/responses in Worker\Model\*
 - Added Hydrators to hydrate PSR-7 responses to arrays or domain objects.
-- All exceptions extend `Mailgun\Exception`.
-- New exceptions in `Mailgun\Exception` namespace.
+- All exceptions extend `Worker\Exception`.
+- New exceptions in `Worker\Exception` namespace.
 - Added `HttpClientConfigurator` to configure the HTTP client.
 - Added HttpClient plugins `History` and `ReplaceUriPlugin`
 - Assertions with Webmozart\Assert
-- `Mailgun\Mailgun::getLastResponse()`
-- `Mailgun\Connection\RestClient::getAttachment($url)`
+- `Worker\Worker::getLastResponse()`
+- `Worker\Connection\RestClient::getAttachment($url)`
 - Clear license information
 
 ### Fixed
@@ -250,26 +250,26 @@ endpoints are grouped like the API documentation.
 
 The following classes will be removed in version 3.0.
 
-- `Mailgun\Connection\Exceptions\GenericHTTPError`
-- `Mailgun\Connection\Exceptions\InvalidCredentials`
-- `Mailgun\Connection\Exceptions\MissingEndpoint`
-- `Mailgun\Connection\Exceptions\MissingRequiredParameters`
-- `Mailgun\Connection\Exceptions\NoDomainsConfigured`
-- `Mailgun\Connection\RestClient`
-- `Mailgun\Constants\Api`
-- `Mailgun\Constants\ExceptionMessages`
-- `Mailgun\Mailgun::$resetClient`
-- `Mailgun\Mailgun::sendMessage()`
-- `Mailgun\Mailgun::verifyWebhookSignature()`
-- `Mailgun\Mailgun::post()`
-- `Mailgun\Mailgun::get()`
-- `Mailgun\Mailgun::delete()`
-- `Mailgun\Mailgun::put()`
-- `Mailgun\Mailgun::setApiVersion()`
-- `Mailgun\Mailgun::setSslEnabled()`
-- `Mailgun\Mailgun::MessageBuilder()`
-- `Mailgun\Mailgun::OptInHandler()`
-- `Mailgun\Mailgun::BatchMessage()`
+- `Worker\Connection\Exceptions\GenericHTTPError`
+- `Worker\Connection\Exceptions\InvalidCredentials`
+- `Worker\Connection\Exceptions\MissingEndpoint`
+- `Worker\Connection\Exceptions\MissingRequiredParameters`
+- `Worker\Connection\Exceptions\NoDomainsConfigured`
+- `Worker\Connection\RestClient`
+- `Worker\Constants\Api`
+- `Worker\Constants\ExceptionMessages`
+- `Worker\Worker::$resetClient`
+- `Worker\Worker::sendMessage()`
+- `Worker\Worker::verifyWebhookSignature()`
+- `Worker\Worker::post()`
+- `Worker\Worker::get()`
+- `Worker\Worker::delete()`
+- `Worker\Worker::put()`
+- `Worker\Worker::setApiVersion()`
+- `Worker\Worker::setSslEnabled()`
+- `Worker\Worker::MessageBuilder()`
+- `Worker\Worker::OptInHandler()`
+- `Worker\Worker::BatchMessage()`
 
 ## 2.1.2
 

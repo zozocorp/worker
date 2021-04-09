@@ -3,21 +3,21 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
-use Mailgun\Api\Suppression\Whitelist;
-use Mailgun\Model\Suppression\Whitelist\CreateResponse;
-use Mailgun\Model\Suppression\Whitelist\DeleteAllResponse;
-use Mailgun\Model\Suppression\Whitelist\DeleteResponse;
-use Mailgun\Model\Suppression\Whitelist\ImportResponse;
-use Mailgun\Model\Suppression\Whitelist\IndexResponse;
-use Mailgun\Model\Suppression\Whitelist\ShowResponse;
+use Worker\Api\Suppression\Whitelist;
+use Worker\Model\Suppression\Whitelist\CreateResponse;
+use Worker\Model\Suppression\Whitelist\DeleteAllResponse;
+use Worker\Model\Suppression\Whitelist\DeleteResponse;
+use Worker\Model\Suppression\Whitelist\ImportResponse;
+use Worker\Model\Suppression\Whitelist\IndexResponse;
+use Worker\Model\Suppression\Whitelist\ShowResponse;
 
 /**
  * @author Artem Bondarenko <artem@uartema.com>

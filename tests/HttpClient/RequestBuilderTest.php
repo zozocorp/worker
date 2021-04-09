@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\HttpClient;
+namespace Worker\Tests\HttpClient;
 
 use Http\Message\MultipartStream\MultipartStreamBuilder;
-use Mailgun\HttpClient\RequestBuilder;
-use Mailgun\Tests\MailgunTestCase;
+use Worker\HttpClient\RequestBuilder;
+use Worker\Tests\WorkerTestCase;
 use Nyholm\Psr7\Stream;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -21,7 +21,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\StreamInterface;
 
-class RequestBuilderTest extends MailgunTestCase
+class RequestBuilderTest extends WorkerTestCase
 {
     /**
      * @var MockObject|RequestFactoryInterface

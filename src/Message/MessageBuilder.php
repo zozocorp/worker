@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Message;
+namespace Worker\Message;
 
-use Mailgun\Message\Exceptions\LimitExceeded;
-use Mailgun\Message\Exceptions\TooManyRecipients;
+use Worker\Message\Exceptions\LimitExceeded;
+use Worker\Message\Exceptions\TooManyRecipients;
 
 /**
  * This class is used for composing a properly formed
@@ -20,7 +20,7 @@ use Mailgun\Message\Exceptions\TooManyRecipients;
  * this class makes the process easier. See the official
  * documentation (link below) for usage instructions.
  *
- * @see https://github.com/mailgun/mailgun-php/blob/master/src/Mailgun/Message/README.md
+ * @see https://github.com/worker/worker-php/blob/master/src/Worker/Message/README.md
  */
 class MessageBuilder
 {

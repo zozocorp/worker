@@ -3,19 +3,19 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
-use Mailgun\Api\Suppression\Unsubscribe;
-use Mailgun\Model\Suppression\Unsubscribe\CreateResponse;
-use Mailgun\Model\Suppression\Unsubscribe\DeleteResponse;
-use Mailgun\Model\Suppression\Unsubscribe\IndexResponse;
-use Mailgun\Model\Suppression\Unsubscribe\ShowResponse;
+use Worker\Api\Suppression\Unsubscribe;
+use Worker\Model\Suppression\Unsubscribe\CreateResponse;
+use Worker\Model\Suppression\Unsubscribe\DeleteResponse;
+use Worker\Model\Suppression\Unsubscribe\IndexResponse;
+use Worker\Model\Suppression\Unsubscribe\ShowResponse;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>

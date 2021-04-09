@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Domain;
+namespace Worker\Tests\Model\Domain;
 
-use Mailgun\Model\Domain\ClickTracking;
-use Mailgun\Model\Domain\UpdateClickTrackingResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Domain\ClickTracking;
+use Worker\Model\Domain\UpdateClickTrackingResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class UpdateClickTrackingResponseTest extends BaseModelTest
 {

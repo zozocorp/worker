@@ -3,31 +3,31 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\Domain;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Model\Domain\ConnectionResponse;
-use Mailgun\Model\Domain\CreateCredentialResponse;
-use Mailgun\Model\Domain\CreateResponse;
-use Mailgun\Model\Domain\DeleteCredentialResponse;
-use Mailgun\Model\Domain\DeleteResponse;
-use Mailgun\Model\Domain\IndexResponse;
-use Mailgun\Model\Domain\ShowResponse;
-use Mailgun\Model\Domain\TrackingResponse;
-use Mailgun\Model\Domain\UpdateClickTrackingResponse;
-use Mailgun\Model\Domain\UpdateConnectionResponse;
-use Mailgun\Model\Domain\UpdateCredentialResponse;
-use Mailgun\Model\Domain\UpdateOpenTrackingResponse;
-use Mailgun\Model\Domain\UpdateUnsubscribeTrackingResponse;
-use Mailgun\Model\Domain\VerifyResponse;
+use Worker\Api\Domain;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Model\Domain\ConnectionResponse;
+use Worker\Model\Domain\CreateCredentialResponse;
+use Worker\Model\Domain\CreateResponse;
+use Worker\Model\Domain\DeleteCredentialResponse;
+use Worker\Model\Domain\DeleteResponse;
+use Worker\Model\Domain\IndexResponse;
+use Worker\Model\Domain\ShowResponse;
+use Worker\Model\Domain\TrackingResponse;
+use Worker\Model\Domain\UpdateClickTrackingResponse;
+use Worker\Model\Domain\UpdateConnectionResponse;
+use Worker\Model\Domain\UpdateCredentialResponse;
+use Worker\Model\Domain\UpdateOpenTrackingResponse;
+use Worker\Model\Domain\UpdateUnsubscribeTrackingResponse;
+use Worker\Model\Domain\VerifyResponse;
 
 class DomainTest extends TestCase
 {
@@ -46,8 +46,8 @@ class DomainTest extends TestCase
   "items": [
     {
       "created_at": "Wed, 10 Jul 2013 19:26:52 GMT",
-      "smtp_login": "postmaster@samples.mailgun.org",
-      "name": "samples.mailgun.org",
+      "smtp_login": "postmaster@samples.worker.org",
+      "name": "samples.worker.org",
       "smtp_password": "4rtqo4p6rrx9",
       "wildcard": true,
       "spam_action": "disabled",
@@ -63,7 +63,7 @@ JSON
         $response = $api->index();
         $this->assertInstanceOf(IndexResponse::class, $response);
         $this->assertEquals(1, $response->getTotalCount());
-        $this->assertEquals('samples.mailgun.org', $response->getDomains()[0]->getName());
+        $this->assertEquals('samples.worker.org', $response->getDomains()[0]->getName());
     }
 
     public function testShow()

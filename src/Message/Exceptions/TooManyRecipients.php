@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Message\Exceptions;
+namespace Worker\Message\Exceptions;
 
-use Mailgun\Exception;
-use Mailgun\Message\MessageBuilder;
+use Worker\Exception;
+use Worker\Message\MessageBuilder;
 
 class TooManyRecipients extends LimitExceeded implements Exception
 {

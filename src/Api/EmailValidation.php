@@ -3,24 +3,24 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
-use Mailgun\Exception\HttpClientException;
-use Mailgun\Exception\HttpServerException;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Model\EmailValidation\ParseResponse;
-use Mailgun\Model\EmailValidation\ValidateResponse;
+use Worker\Assert;
+use Worker\Exception\HttpClientException;
+use Worker\Exception\HttpServerException;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Model\EmailValidation\ParseResponse;
+use Worker\Model\EmailValidation\ValidateResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-email-validation.html
+ * @see https://documentation.worker.com/en/latest/api-email-validation.html
  *
  * @author David Garcia <me@davidgarcia.cat>
  */

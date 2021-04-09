@@ -3,36 +3,36 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
-use Mailgun\Model\Domain\ConnectionResponse;
-use Mailgun\Model\Domain\CreateCredentialResponse;
-use Mailgun\Model\Domain\CreateResponse;
-use Mailgun\Model\Domain\CredentialResponse;
-use Mailgun\Model\Domain\DeleteCredentialResponse;
-use Mailgun\Model\Domain\DeleteResponse;
-use Mailgun\Model\Domain\IndexResponse;
-use Mailgun\Model\Domain\ShowResponse;
-use Mailgun\Model\Domain\TrackingResponse;
-use Mailgun\Model\Domain\UpdateClickTrackingResponse;
-use Mailgun\Model\Domain\UpdateConnectionResponse;
-use Mailgun\Model\Domain\UpdateCredentialResponse;
-use Mailgun\Model\Domain\UpdateOpenTrackingResponse;
-use Mailgun\Model\Domain\UpdateUnsubscribeTrackingResponse;
-use Mailgun\Model\Domain\VerifyResponse;
+use Worker\Assert;
+use Worker\Model\Domain\ConnectionResponse;
+use Worker\Model\Domain\CreateCredentialResponse;
+use Worker\Model\Domain\CreateResponse;
+use Worker\Model\Domain\CredentialResponse;
+use Worker\Model\Domain\DeleteCredentialResponse;
+use Worker\Model\Domain\DeleteResponse;
+use Worker\Model\Domain\IndexResponse;
+use Worker\Model\Domain\ShowResponse;
+use Worker\Model\Domain\TrackingResponse;
+use Worker\Model\Domain\UpdateClickTrackingResponse;
+use Worker\Model\Domain\UpdateConnectionResponse;
+use Worker\Model\Domain\UpdateCredentialResponse;
+use Worker\Model\Domain\UpdateOpenTrackingResponse;
+use Worker\Model\Domain\UpdateUnsubscribeTrackingResponse;
+use Worker\Model\Domain\VerifyResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @see https://documentation.mailgun.com/api-domains.html
+ * @see https://documentation.worker.com/api-domains.html
  *
- * @author Sean Johnson <sean@mailgun.com>
+ * @author Sean Johnson <sean@worker.com>
  */
 class VerifyEmail extends HttpApi
 {
@@ -72,9 +72,9 @@ class VerifyEmail extends HttpApi
     /**
      * Creates a new domain for the account.
      * See below for spam filtering parameter information.
-     * {@link https://documentation.mailgun.com/user_manual.html#um-spam-filter}.
+     * {@link https://documentation.worker.com/user_manual.html#um-spam-filter}.
      *
-     * @see https://documentation.mailgun.com/en/latest/api-domains.html#domains
+     * @see https://documentation.worker.com/en/latest/api-domains.html#domains
      *
      * @param string   $domain             name of the domain
      * @param string   $smtpPass           password for SMTP authentication

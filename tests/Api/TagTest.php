@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\Tag;
-use Mailgun\Hydrator\ModelHydrator;
-use Mailgun\Model\Tag\IndexResponse;
+use Worker\Api\Tag;
+use Worker\Hydrator\ModelHydrator;
+use Worker\Model\Tag\IndexResponse;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
@@ -68,10 +68,10 @@ class TagTest extends TestCase
         }
     ],
     "paging": {
-        "previous": "http:\/\/api.mailgun.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.mailgun.org\/tags?limit=10&page=prev&tag=",
-        "first": "http:\/\/api.mailgun.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.mailgun.org\/tags?limit=10&page=first&tag=",
-        "next": "http:\/\/api.mailgun.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.mailgun.org\/tags?limit=10&page=next&tag=",
-        "last": "http:\/\/api.mailgun.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.mailgun.org\/tags?limit=10&page=last&tag="
+        "previous": "http:\/\/api.worker.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.worker.org\/tags?limit=10&page=prev&tag=",
+        "first": "http:\/\/api.worker.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.worker.org\/tags?limit=10&page=first&tag=",
+        "next": "http:\/\/api.worker.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.worker.org\/tags?limit=10&page=next&tag=",
+        "last": "http:\/\/api.worker.net\/v3\/sandbox152fb160643f41f9b09b52f7b5e370ec.worker.org\/tags?limit=10&page=last&tag="
     }
 }';
 
@@ -89,7 +89,7 @@ class TagTest extends TestCase
 
         $this->assertInstanceOf(IndexResponse::class, $tags);
         $this->assertCount(6, $tags->getItems());
-        $this->assertContainsOnlyInstancesOf(\Mailgun\Model\Tag\Tag::class, $tags->getItems());
+        $this->assertContainsOnlyInstancesOf(\Worker\Model\Tag\Tag::class, $tags->getItems());
         $this->assertTrue(method_exists($api, 'nextPage'));
         $this->assertTrue(method_exists($api, 'previousPage'));
         $this->assertTrue(method_exists($api, 'firstPage'));

@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\MailingList;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Model\EmailValidation\ValidateResponse;
-use Mailgun\Model\MailingList\ValidationCancelResponse;
-use Mailgun\Model\MailingList\ValidationStatusResponse;
+use Worker\Api\MailingList;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Model\EmailValidation\ValidateResponse;
+use Worker\Model\MailingList\ValidationCancelResponse;
+use Worker\Model\MailingList\ValidationStatusResponse;
 
 class MailingListTest extends TestCase
 {

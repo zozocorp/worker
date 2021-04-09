@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\Route;
-use Mailgun\Model\Route\DeleteResponse;
-use Mailgun\Model\Route\IndexResponse;
-use Mailgun\Model\Route\ShowResponse;
-use Mailgun\Model\Route\UpdateResponse;
+use Worker\Api\Route;
+use Worker\Model\Route\DeleteResponse;
+use Worker\Model\Route\IndexResponse;
+use Worker\Model\Route\ShowResponse;
+use Worker\Model\Route\UpdateResponse;
 
 /**
  * @author David Garcia <me@davidgarcia.cat>

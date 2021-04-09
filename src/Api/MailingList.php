@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Api\MailingList\Member;
-use Mailgun\Assert;
-use Mailgun\Model\EmailValidation\ValidateResponse;
-use Mailgun\Model\MailingList\CreateResponse;
-use Mailgun\Model\MailingList\DeleteResponse;
-use Mailgun\Model\MailingList\PagesResponse;
-use Mailgun\Model\MailingList\ShowResponse;
-use Mailgun\Model\MailingList\UpdateResponse;
-use Mailgun\Model\MailingList\ValidationCancelResponse;
-use Mailgun\Model\MailingList\ValidationStatusResponse;
+use Worker\Api\MailingList\Member;
+use Worker\Assert;
+use Worker\Model\EmailValidation\ValidateResponse;
+use Worker\Model\MailingList\CreateResponse;
+use Worker\Model\MailingList\DeleteResponse;
+use Worker\Model\MailingList\PagesResponse;
+use Worker\Model\MailingList\ShowResponse;
+use Worker\Model\MailingList\UpdateResponse;
+use Worker\Model\MailingList\ValidationCancelResponse;
+use Worker\Model\MailingList\ValidationStatusResponse;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-mailinglists.html
+ * @see https://documentation.worker.com/en/latest/api-mailinglists.html
  */
 class MailingList extends HttpApi
 {

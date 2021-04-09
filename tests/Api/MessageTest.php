@@ -3,18 +3,18 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\Message;
-use Mailgun\Model\Message\SendResponse;
-use Mailgun\Model\Message\ShowResponse;
+use Worker\Api\Message;
+use Worker\Model\Message\SendResponse;
+use Worker\Model\Message\ShowResponse;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
@@ -41,7 +41,7 @@ class MessageTest extends TestCase
             'subject' => 'Test file path attachments',
             'text' => 'Test',
             'attachment' => [
-                ['filePath' => __DIR__.'/../TestAssets/mailgun_icon1.png', 'filename' => 'mailgun_icon1.png'],
+                ['filePath' => __DIR__.'/../TestAssets/worker_icon1.png', 'filename' => 'worker_icon1.png'],
             ],
         ]);
     }

@@ -3,23 +3,23 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
-use Mailgun\Exception\InvalidArgumentException;
-use Mailgun\Message\BatchMessage;
-use Mailgun\Model\Message\SendResponse;
-use Mailgun\Model\Message\ShowResponse;
+use Worker\Assert;
+use Worker\Exception\InvalidArgumentException;
+use Worker\Message\BatchMessage;
+use Worker\Model\Message\SendResponse;
+use Worker\Model\Message\ShowResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-sending.html
+ * @see https://documentation.worker.com/en/latest/api-sending.html
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
@@ -32,7 +32,7 @@ class Message extends HttpApi
     }
 
     /**
-     * @see https://documentation.mailgun.com/en/latest/api-sending.html#sending
+     * @see https://documentation.worker.com/en/latest/api-sending.html#sending
      *
      * @return SendResponse|ResponseInterface
      * 
@@ -47,7 +47,7 @@ class Message extends HttpApi
     }
 
     /**
-     * @see https://documentation.mailgun.com/en/latest/api-sending.html#sending
+     * @see https://documentation.worker.com/en/latest/api-sending.html#sending
      *
      * @param array  $recipients with all you send emails to. Including bcc and cc
      * @param string $message    Message filepath or content
@@ -83,7 +83,7 @@ class Message extends HttpApi
     /**
      * Get stored message.
      *
-     * @see https://documentation.mailgun.com/en/latest/api-sending.html#retrieving-stored-messages
+     * @see https://documentation.worker.com/en/latest/api-sending.html#retrieving-stored-messages
      *
      * @param bool $rawMessage if true we will use "Accept: message/rfc2822" header
      *

@@ -3,26 +3,26 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api\Suppression;
+namespace Worker\Api\Suppression;
 
-use Mailgun\Api\HttpApi;
-use Mailgun\Api\Pagination;
-use Mailgun\Assert;
-use Mailgun\Model\Suppression\Complaint\CreateResponse;
-use Mailgun\Model\Suppression\Complaint\DeleteResponse;
-use Mailgun\Model\Suppression\Complaint\IndexResponse;
-use Mailgun\Model\Suppression\Complaint\ShowResponse;
+use Worker\Api\HttpApi;
+use Worker\Api\Pagination;
+use Worker\Assert;
+use Worker\Model\Suppression\Complaint\CreateResponse;
+use Worker\Model\Suppression\Complaint\DeleteResponse;
+use Worker\Model\Suppression\Complaint\IndexResponse;
+use Worker\Model\Suppression\Complaint\ShowResponse;
 
 /**
- * @see https://documentation.mailgun.com/api-suppressions.html#complaints
+ * @see https://documentation.worker.com/api-suppressions.html#complaints
  *
- * @author Sean Johnson <sean@mailgun.com>
+ * @author Sean Johnson <sean@worker.com>
  */
 class Complaint extends HttpApi
 {

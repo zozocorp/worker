@@ -75,7 +75,7 @@
   <file src="src/HttpClient/Plugin/HistoryTrait.php">
     <UnrecognizedStatement occurrences="1"/>
   </file>
-  <file src="src/Mailgun.php">
+  <file src="src/Worker.php">
     <PossiblyNullArgument occurrences="1">
       <code>$this-&gt;apiKey</code>
     </PossiblyNullArgument>

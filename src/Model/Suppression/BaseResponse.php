@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Model\Suppression;
+namespace Worker\Model\Suppression;
 
-use Mailgun\Model\ApiResponse;
+use Worker\Model\ApiResponse;
 
 /**
  * Serves only as an abstract base for Suppression API code.
  *
- * @author Sean Johnson <sean@mailgun.com>
+ * @author Sean Johnson <sean@worker.com>
  */
 abstract class BaseResponse implements ApiResponse
 {

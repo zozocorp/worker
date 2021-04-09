@@ -3,29 +3,29 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Api;
+namespace Worker\Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
-use Mailgun\Api\EmailValidationV4;
-use Mailgun\Model\EmailValidationV4\CreateBulkJobResponse;
-use Mailgun\Model\EmailValidationV4\CreateBulkPreviewResponse;
-use Mailgun\Model\EmailValidationV4\DeleteBulkJobResponse;
-use Mailgun\Model\EmailValidationV4\GetBulkJobResponse;
-use Mailgun\Model\EmailValidationV4\GetBulkJobsResponse;
-use Mailgun\Model\EmailValidationV4\GetBulkPreviewResponse;
-use Mailgun\Model\EmailValidationV4\GetBulkPreviewsResponse;
-use Mailgun\Model\EmailValidationV4\Job;
-use Mailgun\Model\EmailValidationV4\JobDownloadUrl;
-use Mailgun\Model\EmailValidationV4\Preview;
-use Mailgun\Model\EmailValidationV4\PromoteBulkPreviewResponse;
-use Mailgun\Model\EmailValidationV4\Summary;
-use Mailgun\Model\EmailValidationV4\ValidateResponse;
+use Worker\Api\EmailValidationV4;
+use Worker\Model\EmailValidationV4\CreateBulkJobResponse;
+use Worker\Model\EmailValidationV4\CreateBulkPreviewResponse;
+use Worker\Model\EmailValidationV4\DeleteBulkJobResponse;
+use Worker\Model\EmailValidationV4\GetBulkJobResponse;
+use Worker\Model\EmailValidationV4\GetBulkJobsResponse;
+use Worker\Model\EmailValidationV4\GetBulkPreviewResponse;
+use Worker\Model\EmailValidationV4\GetBulkPreviewsResponse;
+use Worker\Model\EmailValidationV4\Job;
+use Worker\Model\EmailValidationV4\JobDownloadUrl;
+use Worker\Model\EmailValidationV4\Preview;
+use Worker\Model\EmailValidationV4\PromoteBulkPreviewResponse;
+use Worker\Model\EmailValidationV4\Summary;
+use Worker\Model\EmailValidationV4\ValidateResponse;
 
 class EmailValidationV4Test extends TestCase
 {
@@ -121,7 +121,7 @@ JSON
                 "csv": "<download_link>",
                 "json": "<download_link>"
             },
-            "id": "bulk_validations_sandbox2_mailgun_org",
+            "id": "bulk_validations_sandbox2_worker_org",
             "quantity": 207665,
             "records_processed": 207665,
             "status": "uploaded",
@@ -147,7 +147,7 @@ JSON
                 "csv": "<download_link>",
                 "json": "<download_link>"
             },
-            "id": "bulk_validations_sandbox_mailgun_org",
+            "id": "bulk_validations_sandbox_worker_org",
             "quantity": 207,
             "records_processed": 207,
             "status": "uploaded",
@@ -205,7 +205,7 @@ JSON
         "csv": "<download_link>",
         "json": "<download_link>"
     },
-    "id": "bulk_validations_sandbox_mailgun_org",
+    "id": "bulk_validations_sandbox_worker_org",
     "quantity": 207,
     "records_processed": 208,
     "status": "uploaded",
@@ -238,7 +238,7 @@ JSON
         $this->assertInstanceOf(Job::class, $response);
         $this->assertEquals('2020-05-21 16:56:31', $response->getCreatedAt()->format('Y-m-d H:i:s'));
         $this->assertInstanceOf(JobDownloadUrl::class, $response->getDownloadUrl());
-        $this->assertEquals('bulk_validations_sandbox_mailgun_org', $response->getId());
+        $this->assertEquals('bulk_validations_sandbox_worker_org', $response->getId());
         $this->assertEquals(207, $response->getQuantity());
         $this->assertEquals(208, $response->getRecordsProcessed());
         $this->assertEquals('uploaded', $response->getStatus());

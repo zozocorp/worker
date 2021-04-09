@@ -3,20 +3,20 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\HttpClient;
+namespace Worker\HttpClient;
 
 use Http\Client\Common\Plugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
-use Mailgun\HttpClient\Plugin\History;
-use Mailgun\HttpClient\Plugin\ReplaceUriPlugin;
+use Worker\HttpClient\Plugin\History;
+use Worker\HttpClient\Plugin\ReplaceUriPlugin;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\UriFactoryInterface;
 
@@ -69,7 +69,7 @@ final class HttpClientConfigurator
         $plugins = [
             new Plugin\AddHostPlugin($this->getUriFactory()->createUri($this->endpoint)),
             new Plugin\HeaderDefaultsPlugin([
-                'User-Agent' => 'mailgun-sdk-php/v2 (https://github.com/mailgun/mailgun-php)',
+                'User-Agent' => 'worker-sdk-php/v2 (https://github.com/worker/worker-php)',
                 'Authorization' => 'Basic '.base64_encode(sprintf('api:%s', $this->getApiKey())),
             ]),
             new Plugin\HistoryPlugin($this->responseHistory),

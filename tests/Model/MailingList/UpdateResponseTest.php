@@ -3,17 +3,17 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\MailingList;
+namespace Worker\Tests\Model\MailingList;
 
-use Mailgun\Model\MailingList\CreateResponse;
-use Mailgun\Model\MailingList\MailingList;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\MailingList\CreateResponse;
+use Worker\Model\MailingList\MailingList;
+use Worker\Tests\Model\BaseModelTest;
 
 class UpdateResponseTest extends BaseModelTest
 {
@@ -28,7 +28,7 @@ class UpdateResponseTest extends BaseModelTest
     "description": "My updated test mailing list",
     "created_at": "Wed, 06 Mar 2013 11:39:51 GMT",
     "access_level": "readonly",
-    "address": "dev@samples.mailgun.org",
+    "address": "dev@samples.worker.org",
     "name": "Test List Updated"
   }
 }

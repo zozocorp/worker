@@ -3,27 +3,27 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Api;
+namespace Worker\Api;
 
-use Mailgun\Assert;
-use Mailgun\HttpClient\RequestBuilder;
-use Mailgun\Hydrator\Hydrator;
-use Mailgun\Model\Webhook\CreateResponse;
-use Mailgun\Model\Webhook\DeleteResponse;
-use Mailgun\Model\Webhook\IndexResponse;
-use Mailgun\Model\Webhook\ShowResponse;
-use Mailgun\Model\Webhook\UpdateResponse;
+use Worker\Assert;
+use Worker\HttpClient\RequestBuilder;
+use Worker\Hydrator\Hydrator;
+use Worker\Model\Webhook\CreateResponse;
+use Worker\Model\Webhook\DeleteResponse;
+use Worker\Model\Webhook\IndexResponse;
+use Worker\Model\Webhook\ShowResponse;
+use Worker\Model\Webhook\UpdateResponse;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * @see https://documentation.mailgun.com/en/latest/api-webhooks.html
+ * @see https://documentation.worker.com/en/latest/api-webhooks.html
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */

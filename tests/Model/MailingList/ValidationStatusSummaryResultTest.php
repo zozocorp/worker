@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\MailingList;
+namespace Worker\Tests\Model\MailingList;
 
-use Mailgun\Model\MailingList\ValidationStatusSummaryResult;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\MailingList\ValidationStatusSummaryResult;
+use Worker\Tests\Model\BaseModelTest;
 
 class ValidationStatusSummaryResultTest extends BaseModelTest
 {

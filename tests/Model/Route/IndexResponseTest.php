@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Route;
+namespace Worker\Tests\Model\Route;
 
-use Mailgun\Model\Route\IndexResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Route\IndexResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class IndexResponseTest extends BaseModelTest
 {
@@ -31,7 +31,7 @@ class IndexResponseTest extends BaseModelTest
               "stop()"
           ],
           "priority": 0,
-          "expression": "match_recipient(\".*@samples.mailgun.org\")",
+          "expression": "match_recipient(\".*@samples.worker.org\")",
           "id": "4f3babe4ba8a481c6400476a"
       }
   ]

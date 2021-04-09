@@ -3,16 +3,16 @@
 declare(strict_types=1);
 
 /*
- * Copyright (C) 2013 Mailgun
+ * Copyright (C) 2013 Worker
  *
  * This software may be modified and distributed under the terms
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Mailgun\Tests\Model\Domain;
+namespace Worker\Tests\Model\Domain;
 
-use Mailgun\Model\Domain\CredentialResponse;
-use Mailgun\Tests\Model\BaseModelTest;
+use Worker\Model\Domain\CredentialResponse;
+use Worker\Tests\Model\BaseModelTest;
 
 class CredentialResponseTest extends BaseModelTest
 {
@@ -26,14 +26,14 @@ class CredentialResponseTest extends BaseModelTest
     {
       "size_bytes": 5,
       "created_at": "Tue, 27 Sep 2011 20:24:22 GMT",
-      "mailbox": "user@samples.mailgun.org",
+      "mailbox": "user@samples.worker.org",
       "login": "user"
     },
     {
       "size_bytes": 0,
       "created_at": "Thu, 06 Oct 2011 10:22:36 GMT",
-      "mailbox": "user@samples.mailgun.org",
-      "login": "user@samples.mailgun.org"
+      "mailbox": "user@samples.worker.org",
+      "login": "user@samples.worker.org"
     }
   ]
 }
