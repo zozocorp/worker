@@ -110,7 +110,7 @@ to the Worker class.
 ```php
 $wk = Worker::create('key-example');
 $dns = $wk->ips()->infor($datas);
-``
+```
 
 You can also use the `NoopHydrator` to get a PSR7 Response returned from
 the API calls.
@@ -134,7 +134,6 @@ Go to http://bin.worker.net. The Postbin will generate a special URL. Save that 
 *Tip: The bin id will be the URL part after bin.worker.net. It will be random generated letters and numbers.
 For example, the bin id in this URL (http://bin.worker.net/aecf68de) is `aecf68de`.*
 
-```php
 use Worker\HttpClient\HttpClientConfigurator;
 use Worker\Hydrator\NoopHydrator;
 
