@@ -21,8 +21,6 @@ use Worker\Model\Event\EventResponse;
  */
 class Minify extends HttpApi
 {
-    use Pagination;
-
     /**
      * @return EventResponse
      */
