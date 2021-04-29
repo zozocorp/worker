@@ -66,7 +66,7 @@ You will find more detailed documentation at [/doc](https://worker.zozo.vn/front
 ### VERIFY EMAIL
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->email()->verify($email);
+$dns = $wk->email()->verify(['email' => 'ws@zozo.vn']);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
@@ -81,7 +81,18 @@ doc blocks on the response classes. This provides an excellent IDE integration.
 ### MINIFY HTML
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->teamplate()->minify($datas);
+$dns = $wk->teamplate()->minify(['teamplate' => '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERT HTML TO AMP</title>
+</head>
+<body>
+    <p>MINIFY HTML</p>
+</body>
+</html>']);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
@@ -90,13 +101,24 @@ to the Worker class.
 ### MINIFY IMAGES
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->minify()->shrink($datas);
+$dns = $wk->minify()->shrink(['image' => $file]);
 ```
 
 ### CONVERT HTML TO AMP
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->teamplate()->AMP($datas);
+$dns = $wk->teamplate()->AMP(['teamplate' => '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERT HTML TO AMP</title>
+</head>
+<body>
+    <p>CONVERT HTML TO AMP</p>
+</body>
+</html>']);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
@@ -105,7 +127,7 @@ to the Worker class.
 ### GEO IP
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->ip()->infor($datas);
+$dns = $wk->ip()->info(['ip' => '125.212.192.170']);
 ```
 
 You can also use the `NoopHydrator` to get a PSR7 Response returned from

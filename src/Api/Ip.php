@@ -61,7 +61,7 @@ class Ip extends HttpApi
      *
      * @return ShowResponse|ResponseInterface
      */
-    public function infor(array $params, $headers = [])
+    public function info(array $params, $headers = [])
     {
         Assert::notEmpty($params);
         $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);

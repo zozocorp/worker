@@ -146,7 +146,7 @@ class RequestBuilder
                 $error_status = "503: service unavailable. Hopefully they'll be OK soon!";
                 break;
             default:
-                $error_status = "Undocumented error: " . $httpCode . " : " . curl_error($curl);
+                $error_status = "The user's token does not exist: " . $httpCode . " : " . curl_error($curl);
                 break;
         }
         curl_close($curl);
