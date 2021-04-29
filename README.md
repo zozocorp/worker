@@ -56,7 +56,7 @@ $wk->email()->send('example.com', [
 ]);
 ```
 
-Attention: `$domain` must match to the domain you have configured on [app.worker.com](https://worker.zozo.vn).
+Attention: `$domain` must match to the domain you have configured on [worker.zozo.vn](https://worker.zozo.vn).
 
 ### All usage examples
 
