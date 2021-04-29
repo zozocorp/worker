@@ -4,10 +4,6 @@ This is the Worker PHP SDK. This SDK contains methods for easily interacting
 with the Worker API. Below are examples to get you started. For additional
 examples, please see our official documentation at http://documentation.worker.com
 
-[![Latest Version](https://iwk.shields.io/github/release/worker/worker-php.svg?style=flat-square)](https://github.com/worker/worker-php/releases)
-[![Code Coverage](https://iwk.shields.io/scrutinizer/coverage/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
-[![Quality Score](https://iwk.shields.io/scrutinizer/g/worker/worker-php.svg?style=flat-square)](https://scrutinizer-ci.com/g/worker/worker-php)
-[![Total Downloads](https://iwk.shields.io/packagist/dt/worker/worker-php.svg?style=flat-square)](https://packagist.org/packages/worker/worker-php)
 [![Join the chat at https://gitter.im/worker/worker-php](https://badges.gitter.im/worker/worker-php.svg)](https://gitter.im/worker/worker-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Installation
@@ -48,7 +44,7 @@ Here's how to send a message using the SDK:
 
 ```php
 // First, instantiate the SDK with your API credentials
-$wk = Worker::create('key-example'); // For US servers
+$wk = Worker::create('key-example'); // For VI servers
 
 // Now, compose and send your message.
 // $wk->messages()->send($domain, $params);
@@ -60,12 +56,12 @@ $wk->email()->send('example.com', [
 ]);
 ```
 
-Attention: `$domain` must match to the domain you have configured on [app.worker.com](https://app.worker.com/app/domains).
+Attention: `$domain` must match to the domain you have configured on [app.worker.com](https://worker.zozo.vn).
 
 ### All usage examples
 
-You will find more detailed documentation at [/doc](doc/index.md) and on
-[https://documentation.worker.com](https://documentation.worker.com/en/latest/api_reference.html).
+You will find more detailed documentation at [/doc](https://worker.zozo.vn/frontend/docs/api/v1) and on
+[https://documentation.worker.com](https://worker.zozo.vn/frontend/docs/api/v1).
 
 ### VERIFY EMAIL
 ```php
