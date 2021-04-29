@@ -95,7 +95,7 @@ class Worker
         return new Api\Message($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function teamplate(): Api\Teamplate
+    public function template(): Api\Teamplate
     {
         return new Api\Teamplate($this->httpClient, $this->requestBuilder, $this->hydrator);
     }

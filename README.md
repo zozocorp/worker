@@ -81,7 +81,7 @@ doc blocks on the response classes. This provides an excellent IDE integration.
 ### MINIFY HTML
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->teamplate()->minify(['teamplate' => '<!DOCTYPE html>
+$dns = $wk->template()->minify(['template' => '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -102,7 +102,7 @@ to the Worker class.
 ### CONVERT HTML TO AMP
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->teamplate()->amp(['teamplate' => '<!DOCTYPE html>
+$dns = $wk->template()->amp(['template' => '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
