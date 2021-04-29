@@ -2,7 +2,7 @@
 
 This is the Worker PHP SDK. This SDK contains methods for easily interacting
 with the Worker API. Below are examples to get you started. For additional
-examples, please see our official documentation at http://documentation.worker.com
+examples, please see our official documentation at https://worker.zozo.vn/
 
 [![Join the chat at https://gitter.im/worker/worker-php](https://badges.gitter.im/worker/worker-php.svg)](https://gitter.im/worker/worker-php?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -56,7 +56,7 @@ $wk->email()->send('example.com', [
 ]);
 ```
 
-Attention: `$domain` must match to the domain you have configured on [app.worker.com](https://worker.zozo.vn).
+Attention: `$domain` must match to the domain you have configured on [worker.zozo.vn](https://worker.zozo.vn).
 
 ### All usage examples
 
