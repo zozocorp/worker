@@ -34,7 +34,7 @@ class Teamplate extends HttpApi
      * * @todo remove interface => you need more interface
      */
     
-    public function AMP(array $params, $headers = [])
+    public function amp(array $params, $headers = [])
     {
         Assert::notEmpty($params);
         $response = $this->httpPostRaw(sprintf('%s/teamplate/amp?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
@@ -47,7 +47,7 @@ class Teamplate extends HttpApi
     public function minify(array $params, array $headers = [])
     {
         Assert::notEmpty($params);
-        $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        $response = $this->httpPostRaw(sprintf('%s/teamplate/minify?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
         return $response;
     }
     

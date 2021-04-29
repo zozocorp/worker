@@ -98,16 +98,11 @@ $dns = $wk->teamplate()->minify(['teamplate' => '<!DOCTYPE html>
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
 to the Worker class.
 
-### MINIFY IMAGES
-```php
-$wk = Worker::create('key-example');
-$dns = $wk->minify()->shrink(['image' => $file]);
-```
 
 ### CONVERT HTML TO AMP
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->teamplate()->AMP(['teamplate' => '<!DOCTYPE html>
+$dns = $wk->teamplate()->amp(['teamplate' => '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -123,6 +118,12 @@ $dns = $wk->teamplate()->AMP(['teamplate' => '<!DOCTYPE html>
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
 to the Worker class.
+
+### MINIFY IMAGES
+```php
+$wk = Worker::create('key-example');
+$dns = $wk->minify()->shrink(['image' => $file]);
+```
 
 ### GEO IP
 ```php
