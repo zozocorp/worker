@@ -52,7 +52,7 @@ $wk = Worker::create('key-example'); // For US servers
 
 // Now, compose and send your message.
 // $wk->messages()->send($domain, $params);
-$wk->emails()->send('example.com', [
+$wk->email()->send('example.com', [
   'from'    => 'bob@example.com',
   'to'      => 'sally@example.com',
   'subject' => 'The PHP SDK is awesome!',
@@ -70,7 +70,7 @@ You will find more detailed documentation at [/doc](doc/index.md) and on
 ### VERIFY EMAIL
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->verifyEmail()->show($email);
+$dns = $wk->email()->verify($email);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
@@ -85,7 +85,7 @@ doc blocks on the response classes. This provides an excellent IDE integration.
 ### MINIFY HTML
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->minify()->HTML($datas);
+$dns = $wk->teamplate()->minify($datas);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
@@ -100,7 +100,7 @@ $dns = $wk->minify()->shrink($datas);
 ### CONVERT HTML TO AMP
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->convert()->AMP($datas);
+$dns = $wk->teamplate()->AMP($datas);
 ```
 
 If you'd rather work with an array than an object you can inject the `ArrayHydrator`
@@ -109,101 +109,8 @@ to the Worker class.
 ### GEO IP
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->ips()->infor($datas);
+$dns = $wk->ip()->infor($datas);
 ```
 
 You can also use the `NoopHydrator` to get a PSR7 Response returned from
 the API calls.
-
-**Warning: When using `NoopHydrator` there will be no exceptions on a non-200 response.**
-
-### Debugging
-
-Debugging the PHP SDK can be helpful when things aren't working quite right.
-To debug the SDK, here are some suggestions:
-
-Set the endpoint to Worker's Postbin. A Postbin is a web service that allows you to
-post data, which then you can display it through a browser. Using Postbin is an easy way
-to quickly determine what data you're transmitting to Worker's API.
-
-**Step 1 - Create a new Postbin.**
-Go to http://bin.worker.net. The Postbin will generate a special URL. Save that URL.
-
-**Step 2 - Instantiate the Worker client using Postbin.**
-
-*Tip: The bin id will be the URL part after bin.worker.net. It will be random generated letters and numbers.
-For example, the bin id in this URL (http://bin.worker.net/aecf68de) is `aecf68de`.*
-
-use Worker\HttpClient\HttpClientConfigurator;
-use Worker\Hydrator\NoopHydrator;
-
-$configurator = new HttpClientConfigurator();
-$configurator->setEndpoint('http://bin.worker.net/aecf68de');
-$configurator->setApiKey('key-example');
-$configurator->setDebug(true);
-
-$wk = new Worker($configurator, new NoopHydrator());
-
-# Now, compose and send your message.
-$wk->messages()->send('example.com', [
-  'from'    => 'bob@example.com',
-  'to'      => 'sally@example.com',
-  'subject' => 'The PHP SDK is awesome!',
-  'text'    => 'It is so simple to send a message.'
-]);
-```
-### Additional Info
-
-For usage examples on each API endpoint, head over to our official documentation
-pages.
-
-This SDK includes a [Message Builder](src/Worker/Messages/README.md),
-[Batch Message](src/Worker/Messages/README.md) and [Opt-In Handler](src/Worker/Lists/README.md) component.
-
-Message Builder allows you to quickly create the array of parameters, required
-to send a message, by calling a methods for each parameter.
-Batch Message is an extension of Message Builder, and allows you to easily send
-a batch message job within a few seconds. The complexity of
-batch messaging is eliminated!
-
-## Framework integration
-
-If you are using a framework you might consider these composer packages to make the framework integration easier.
-
-* [tehplague/swiftmailer-worker-bundle](https://github.com/tehplague/swiftmailer-worker-bundle) for Symfony
-* [katanyoo/yii2-worker-mailer](https://github.com/katanyoo/yii2-worker-mailer) for Yii2
-* [narendravaghela/cakephp-worker](https://github.com/narendravaghela/cakephp-worker) for CakePHP
-* [drupal/worker](https://www.drupal.org/project/worker) for Drupal
-
-## Contribute
-
-This SDK is an Open Source under the MIT license. It is, thus, maintained by collaborators and contributors.
-
-Feel free to contribute in any way. As an example you may:
-* Trying out the `dev-master` code
-* Create issues if you find problems
-* Reply to other people's issues
-* Review PRs
-
-### Running the test code
-
-If you want to run the tests you should run the following commands:
-
-```terminal
-git clone git@github.com:worker/worker-php.git
-cd worker-php
-composer update
-composer test
-```
-
-## Support and Feedback
-
-Be sure to visit the Worker official
-[documentation website](http://documentation.worker.com/) for additional
-information about our API.
-
-If you find a bug, please submit the issue in Github directly.
-[Worker-PHP Issues](https://github.com/worker/worker-php/issues)
-
-As always, if you need additional assistance, drop us a note through your account at
-[https://app.worker.com/app/support/list](https://app.worker.com/app/support/list).

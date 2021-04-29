@@ -46,6 +46,20 @@ class Message extends HttpApi
         return $response;
     }
 
+   /**
+     * Returns a single domain.
+     *
+     * @param string $domain name of the domain
+     *
+     * @return ShowResponse|array|ResponseInterface
+     */
+    public function verify(array $params, $headers = [])
+    {
+        Assert::notEmpty($params);
+        $response = $this->httpPostRaw(sprintf('%s/email/verify?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        return $response;
+    }
+
     /**
      * @see https://documentation.worker.com/en/latest/api-sending.html#sending
      *

@@ -24,7 +24,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @author David Garcia <me@davidgarcia.cat>
  */
-class Convert extends HttpApi
+class Teamplate extends HttpApi
 {
       /**
      * @see https://documentation.mailgun.com/en/latest/api-sending.html#sending
@@ -40,4 +40,15 @@ class Convert extends HttpApi
         $response = $this->httpPostRaw(sprintf('%s/teamplate/amp?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
         return $response;
     }
+
+    /**
+     * @return EventResponse
+     */
+    public function minify(array $params, array $headers = [])
+    {
+        Assert::notEmpty($params);
+        $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        return $response;
+    }
+    
 }

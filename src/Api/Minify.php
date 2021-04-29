@@ -39,17 +39,7 @@ class Minify extends HttpApi
         return $this->hydrateResponse($response, EventResponse::class);
     }
 
-
-    /**
-     * @return EventResponse
-     */
-    public function HTML(array $params, array $headers = [])
-    {
-        Assert::notEmpty($params);
-        $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
-        return $response;
-    }
-
+    
      /**
      * @return EventResponse
      */

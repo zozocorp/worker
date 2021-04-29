@@ -62,10 +62,10 @@ class VerifyEmail extends HttpApi
      *
      * @return ShowResponse|array|ResponseInterface
      */
-    public function show(string $email)
+    public function show(array $params, $headers = [])
     {
-        Assert::stringNotEmpty($email);
-        $response = $this->httpGet(sprintf('%s/email/verify/%s?api_token=%s', $this->httpClient->host, $email, $this->httpClient->apiKey));
+        Assert::notEmpty($params);
+        $response = $this->httpPostRaw(sprintf('%s/email/verify?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
         return $response;
     }
 
