@@ -120,9 +120,21 @@ If you'd rather work with an array than an object you can inject the `ArrayHydra
 to the Worker class.
 
 ### MINIFY IMAGES
+
+C1: Use the api post header form data or push directly from the form
+
 ```php
 $wk = Worker::create('key-example');
 $dns = $wk->minify()->shrink(['image' => $file]);
+```
+C2: use api post images curl
+
+```php
+$wk = Worker::create('key-example');
+$file_content = file_get_contents($request->file('image'));
+$file_content = base64_encode($file_content);
+$file_type = $_FILES['image']['type'];
+$dns = $wk->minify()->shrink(['content' => $file_content , 'type' => $file_type]);
 ```
 
 ### GEO IP
