@@ -24,7 +24,7 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @author David Garcia <me@davidgarcia.cat>
  */
-class Teamplate extends HttpApi
+class Template extends HttpApi
 {
       /**
      * @see https://documentation.mailgun.com/en/latest/api-sending.html#sending

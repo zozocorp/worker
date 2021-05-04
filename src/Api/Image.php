@@ -19,35 +19,21 @@ use Worker\Model\Event\EventResponse;
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-class Minify extends HttpApi
+class Image extends HttpApi
 {
-    /**
-     * @return EventResponse
-     */
-    public function get(string $domain, array $params = [])
-    {
-        Assert::stringNotEmpty($domain);
-
-        if (array_key_exists('limit', $params)) {
-            Assert::range($params['limit'], 1, 300);
-        }
-
-        $response = $this->httpGet(sprintf('/v3/%s/events', $domain), $params);
-
-        return $this->hydrateResponse($response, EventResponse::class);
-    }
-
-    
      /**
      * @return EventResponse
      */
     public function shrink(array $params, array $headers = [])
     {
         Assert::notEmpty($params['image']);
-        $images_file = $params['image'];
-        $file['size'] = $images_file->getSize();
-        $file['type'] = $images_file->getClientOriginalExtension();
-        $file['content'] = base64_encode(file_get_contents($images_file->getRealPath()));
+        Assert::notEmpty($params['image']['size']);
+        Assert::notEmpty($params['image']['type']);
+        Assert::notEmpty($params['image']['tmp_name']);
+        
+        $file['size'] = $params['image']['size'];
+        $file['type'] = $params['image']['type'];
+        $file['content'] = base64_encode(file_get_contents($params['image']['tmp_name']));
         $response = $this->httpPostRaw(sprintf('%s/image/shrink?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $file, $headers);
         return $response;
     }

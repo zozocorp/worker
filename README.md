@@ -131,10 +131,7 @@ C2: use api post images curl
 
 ```php
 $wk = Worker::create('key-example');
-$file_content = file_get_contents($request->file('image'));
-$file_content = base64_encode($file_content);
-$file_type = $_FILES['image']['type'];
-$dns = $wk->minify()->shrink(['content' => $file_content , 'type' => $file_type]);
+$dns = $wk->minify()->shrink(['image' => $_FILES['image']]);
 ```
 
 ### GEO IP

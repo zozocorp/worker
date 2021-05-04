@@ -95,14 +95,14 @@ class Worker
         return new Api\Message($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function template(): Api\Teamplate
+    public function template(): Api\Template
     {
-        return new Api\Teamplate($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\Template($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function minify(): Api\Minify
+    public function minify(): Api\Image
     {
-        return new Api\Minify($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\Image($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
     public function ip(): Api\Ip
