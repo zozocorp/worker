@@ -100,7 +100,7 @@ class Worker
         return new Api\Template($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function minify(): Api\Image
+    public function image(): Api\Image
     {
         return new Api\Image($this->httpClient, $this->requestBuilder, $this->hydrator);
     }

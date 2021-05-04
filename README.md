@@ -125,13 +125,13 @@ C1: Use the api post header form data or push directly from the form
 
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->minify()->shrink(['image' => $file]);
+$dns = $wk->image()->shrink(['image' => $file]);
 ```
 C2: use api post images curl
 
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->minify()->shrink(['image' => $_FILES['image']]);
+$dns = $wk->image()->shrink(['image' => $_FILES['image']]);
 ```
 
 ### GEO IP
