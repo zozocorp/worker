@@ -43,8 +43,12 @@ class Minify extends HttpApi
      */
     public function shrink(array $params, array $headers = [])
     {
-        Assert::notEmpty($params);
-        $response = $this->httpPostRaw(sprintf('%s/image/shrink?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
+        Assert::notEmpty($params['image']);
+        $images_file = $params['image'];
+        $data['size'] = $images_file->getSize();
+        $data['type'] = $images_file->getClientOriginalExtension();
+        $data['content'] = base64_encode(file_get_contents($images_file->getRealPath()));
+        $response = $this->httpPostRaw(sprintf('%s/image/shrink?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $data, $headers);
         return $response;
     }
 }
