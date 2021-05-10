@@ -12,11 +12,6 @@ declare(strict_types=1);
 namespace Worker\Api;
 
 use Worker\Assert;
-use Worker\Exception\HttpClientException;
-use Worker\Exception\HttpServerException;
-use Worker\Exception\InvalidArgumentException;
-use Worker\Model\EmailValidation\ParseResponse;
-use Worker\Model\EmailValidation\ValidateResponse;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -26,14 +21,6 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Template extends HttpApi
 {
-      /**
-     * @see https://documentation.mailgun.com/en/latest/api-sending.html#sending
-     *
-     * @return SendResponse|ResponseInterface
-     * 
-     * * @todo remove interface => you need more interface
-     */
-    
     public function amp(array $params, $headers = [])
     {
         Assert::notEmpty($params);

@@ -24,38 +24,6 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Ip extends HttpApi
 {
-      /**
-     * Returns a list of IPs.
-     *
-     * @return IndexResponse|ResponseInterface
-     */
-    public function index(?bool $dedicated = null)
-    {
-        $params = [];
-        if (null !== $dedicated) {
-            Assert::boolean($dedicated);
-            $params['dedicated'] = $dedicated;
-        }
-
-        $response = $this->httpGet('/v3/ips', $params);
-
-        return $this->hydrateResponse($response, IndexResponse::class);
-    }
-
-    /**
-     * Returns a list of IPs assigned to a domain.
-     *
-     * @return IndexResponse|ResponseInterface
-     */
-    public function domainIndex(string $domain)
-    {
-        Assert::stringNotEmpty($domain);
-
-        $response = $this->httpGet(sprintf('/v3/domains/%s/ips', $domain));
-
-        return $this->hydrateResponse($response, IndexResponse::class);
-    }
-
     /**
      * Returns a single ip.
      *
@@ -66,39 +34,5 @@ class Ip extends HttpApi
         Assert::notEmpty($params);
         $response = $this->httpPostRaw(sprintf('%s/ip/ipinfo?api_token=%s', $this->httpClient->host, $this->httpClient->apiKey), $params, $headers);
         return $response;
-    }
-
-    /**
-     * Assign a dedicated IP to the domain specified.
-     *
-     * @return UpdateResponse|ResponseInterface
-     */
-    public function assign(string $domain, string $ip)
-    {
-        Assert::stringNotEmpty($domain);
-        Assert::ip($ip);
-
-        $params = [
-            'ip' => $ip,
-        ];
-
-        $response = $this->httpPost(sprintf('/v3/domains/%s/ips', $domain), $params);
-
-        return $this->hydrateResponse($response, UpdateResponse::class);
-    }
-
-    /**
-     * Unassign an IP from the domain specified.
-     *
-     * @return UpdateResponse|ResponseInterface
-     */
-    public function unassign(string $domain, string $ip)
-    {
-        Assert::stringNotEmpty($domain);
-        Assert::ip($ip);
-
-        $response = $this->httpDelete(sprintf('/v3/domains/%s/ips/%s', $domain, $ip));
-
-        return $this->hydrateResponse($response, UpdateResponse::class);
     }
 }

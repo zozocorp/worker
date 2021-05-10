@@ -79,20 +79,9 @@ class Worker
         return new self($httpClientConfigurator);
     }
 
-    public function getLastResponse(): ?ResponseInterface
+    public function email(): Api\Email
     {
-        return $this->responseHistory->getLastResponse();
-    }
-
-    public function attachment(): Api\Attachment
-    {
-        return new Api\Attachment($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    //start service
-    public function email(): Api\Message
-    {
-        return new Api\Message($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\Email($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
     public function template(): Api\Template
@@ -108,42 +97,5 @@ class Worker
     public function ip(): Api\Ip
     {
         return new Api\Ip($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    //done
-
-    public function verifyEmail(): Api\VerifyEmail
-    {
-        return new Api\VerifyEmail($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function mailingList(): Api\MailingList
-    {
-        return new Api\MailingList($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function routes(): Api\Route
-    {
-        return new Api\Route($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function suppressions(): Api\Suppression
-    {
-        return new Api\Suppression($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function stats(): Api\Stats
-    {
-        return new Api\Stats($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function tags(): Api\Tag
-    {
-        return new Api\Tag($this->httpClient, $this->requestBuilder, $this->hydrator);
-    }
-
-    public function webhooks(): Api\Webhook
-    {
-        return new Api\Webhook($this->httpClient, $this->requestBuilder, $this->hydrator, $this->apiKey);
     }
 }
