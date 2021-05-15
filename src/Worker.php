@@ -98,4 +98,14 @@ class Worker
     {
         return new Api\Ip($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
+
+    public function url(): Api\Url
+    {
+        return new Api\Url($this->httpClient, $this->requestBuilder, $this->hydrator);
+    }
+
+    public function qrCode(): Api\QrCode
+    {
+        return new Api\QrCode($this->httpClient, $this->requestBuilder, $this->hydrator);
+    }
 }

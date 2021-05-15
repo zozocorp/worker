@@ -142,3 +142,91 @@ $dns = $wk->ip()->info(['ip' => '125.212.192.170']);
 
 You can also use the `NoopHydrator` to get a PSR7 Response returned from
 the API calls.
+
+### URL screenshot
+```php
+$width = 1080;
+$height = 650;
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->url()->screenshot(['url' => $url, 'width' => $width, 'height' => $height]);
+```
+
+You can also use the `NoopHydrator` to get a PSR7 Response returned from
+the API calls.
+
+### URL screenshot
+```php
+$width = 1080;
+$height = 650;
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->url()->screenshot(['url' => $url, 'width' => $width, 'height' => $height]);
+```
+
+You can also use the `NoopHydrator` to get a PSR7 Response returned from
+the API calls.
+
+
+### URL short
+```php
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->url()->screenshot(['url' => $url]);
+```
+
+You can also use the `NoopHydrator` to get a PSR7 Response returned from
+the API calls.
+
+
+### Create QR code
+
+TYPE: use type text (name, email, phone, url, meta)
+
+```php
+$type = 'text';
+$name = 'zozo'; // Field is optional
+$email = 'ws@zozo.vn'; // Field is optional
+$meta = 'zozo.vn - Nền tảng thiết kế Website bán hàng chuyên nghiệp'; // Field is optional
+$url = 'https://zozo.vn/'; // Field is optional
+$phone = '0960099999'; // Field is optional
+
+$wk = Worker::create('key-example');
+$dns = $wk->qrCode()->encode(['type' => $type, 'content' => $meta]);
+```
+TYPE: use type mecard (name, address, phone, email, url)
+
+```php
+$type = 'mecard';
+$name = 'zozo'; // Field is optional
+$email = 'ws@zozo.vn'; // Field is optional
+$address = 'Tầng 7, Toà nhà iNET, số 247 Cầu Giấy, phường Dịch Vọng, Quận Cầu Giấy'; // Field is optional
+$url = 'https://zozo.vn/'; // Field is optional
+$phone = '0960099999'; // Field is optional
+
+$wk = Worker::create('key-example');
+$dns = $wk->qrCode()->encode(['type' => $type, 'name' => $name, 'email' => $email, 'address' => $address, 'url' => $url, 'phone' => $phone]);
+```
+
+TYPE: use type vcard (first_name, last_name, title, company, street, province, country, phone, email, url)
+
+```php
+$type = 'vcard';
+$first_name = 'le'; // Field is optional
+$last_name = 'thi'; // Field is optional
+$title = 'Nền tảng thiết kế Website bán hàng chuyên nghiệp'; // Field is optional
+$company = 'zozo.vn'; // Field is optional
+$email = 'ws@zozo.vn'; // Field is optional
+$street = 'Tầng 7, Toà nhà iNET, số 247 Cầu Giấy, phường Dịch Vọng, Quận Cầu Giấy'; // Field is optional
+$province = 'Hà Nội'; // Field is optional
+$country = 'Việt Nam'; // Field is optional
+$url = 'https://zozo.vn/'; // Field is optional
+$phone = '0960099999'; // Field is optional
+
+$wk = Worker::create('key-example');
+$dns = $wk->qrCode()->encode([
+    'first_name' => $first_name, 'last_name' => $last_name, 
+    'title' => $title, 'company' => $company, 'email' => $email, 
+    'street' => $street, 'province' => $province, 'country' => $country,
+    'url' => $url, 'phone' => $phone]);
+```
