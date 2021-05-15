@@ -26,7 +26,7 @@ you want to use.
 If you just want to get started quickly you should run the following command:
 
 ```bash
-composer require worker/worker-php kriswallsmith/buzz nyholm/psr7
+composer require zozocorp/worker
 ```
 
 ## Usage
