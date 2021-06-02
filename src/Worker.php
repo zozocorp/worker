@@ -108,4 +108,9 @@ class Worker
     {
         return new Api\QrCode($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
+
+    public function search(): Api\Search
+    {
+        return new Api\Search($this->httpClient, $this->requestBuilder, $this->hydrator);
+    }
 }

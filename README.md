@@ -179,6 +179,71 @@ You can also use the `NoopHydrator` to get a PSR7 Response returned from
 the API calls.
 
 
+### URL short
+
+Search full text
+```php
+$wk = Worker::create('key-example');
+$dns = $wk->search()->fullText(
+    [
+        'index' => 'index name', 
+        'keyword' => 'website giáo dục' , 
+        'fields' => array('text', 'title', 'description')
+    ]);
+```
+
+Insert data
+```php
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->search()->insertData(
+    ['index' => 'index name' ,
+     'data' => array('text' => 'insert content', 'title' => 'insert content', 'description' => 'insert content')
+    ]);
+```
+
+Get data
+```php
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->search()->getData(
+    [
+        'index' => 'index name', 
+        'id' => 1 , 
+    ]);
+```
+
+Delete data
+```php
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->search()->deleteData(
+    [
+        'index' => 'index name', 
+        'id' => 1 , 
+    ]);
+```
+
+Create index
+```php
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->search()->createIndex(
+    [
+        'index' => 'index name', 
+    ]);
+```
+
+Delete index
+```php
+$url = 'https://zozo.vn/';
+$wk = Worker::create('key-example');
+$dns = $wk->search()->deleteIndex(
+    [
+        'index' => 'index name', 
+    ]);
+```
+
 ### Create QR code
 
 TYPE: use type text (name, email, phone, url, meta)
