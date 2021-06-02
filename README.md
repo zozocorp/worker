@@ -179,7 +179,7 @@ You can also use the `NoopHydrator` to get a PSR7 Response returned from
 the API calls.
 
 
-### URL short
+### SEARCH
 
 Search full text
 ```php
