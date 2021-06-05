@@ -184,7 +184,7 @@ the API calls.
 Search full text
 ```php
 $wk = Worker::create('key-example');
-$dns = $wk->search()->fullText(
+$dns = $wk->elasticsearch()->search(
     [
         'index' => 'index name', 
         'keyword' => 'website giáo dục' , 
@@ -192,11 +192,23 @@ $dns = $wk->search()->fullText(
     ]);
 ```
 
+Search keyword trending
+```php
+$wk = Worker::create('key-example');
+$dns = $wk->elasticsearch()->trendingKeywords(
+    [
+        'merchant' => 'tên miền doanh nghiệp', 
+        'from' => 'thời gian bắt đầu' , 
+        'to' => 'thời gian bắt đầu' , 
+        'limit' => 'số bản ghi' , 
+    ]);
+```
+
 Insert data
 ```php
 $url = 'https://zozo.vn/';
 $wk = Worker::create('key-example');
-$dns = $wk->search()->insertData(
+$dns = $wk->elasticsearch()->insert(
     ['index' => 'index name' ,
      'data' => array('text' => 'insert content', 'title' => 'insert content', 'description' => 'insert content')
     ]);
@@ -206,7 +218,7 @@ Get data
 ```php
 $url = 'https://zozo.vn/';
 $wk = Worker::create('key-example');
-$dns = $wk->search()->getData(
+$dns = $wk->elasticsearch()->get(
     [
         'index' => 'index name', 
         'id' => 1 , 
@@ -217,7 +229,7 @@ Delete data
 ```php
 $url = 'https://zozo.vn/';
 $wk = Worker::create('key-example');
-$dns = $wk->search()->deleteData(
+$dns = $wk->elasticsearch()->delete(
     [
         'index' => 'index name', 
         'id' => 1 , 
@@ -228,7 +240,7 @@ Create index
 ```php
 $url = 'https://zozo.vn/';
 $wk = Worker::create('key-example');
-$dns = $wk->search()->createIndex(
+$dns = $wk->elasticsearch()->createIndex(
     [
         'index' => 'index name', 
     ]);
@@ -238,7 +250,7 @@ Delete index
 ```php
 $url = 'https://zozo.vn/';
 $wk = Worker::create('key-example');
-$dns = $wk->search()->deleteIndex(
+$dns = $wk->elasticsearch()->deleteIndex(
     [
         'index' => 'index name', 
     ]);

@@ -109,8 +109,8 @@ class Worker
         return new Api\QrCode($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 
-    public function search(): Api\Search
+    public function elasticsearch(): Api\Elasticsearch
     {
-        return new Api\Search($this->httpClient, $this->requestBuilder, $this->hydrator);
+        return new Api\Elasticsearch($this->httpClient, $this->requestBuilder, $this->hydrator);
     }
 }
